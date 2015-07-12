@@ -7,9 +7,9 @@ using System.Windows;
 
 namespace _5eCharacterGen
 {
-   // TODO: add a reroll skills function
    // TODO: add a enter your own skills
-
+   // TODO: add racial abilities
+   // TODO: add background ailities
 
    class Program
    {
@@ -18,21 +18,22 @@ namespace _5eCharacterGen
       {
 
          // Data Dictionary
-         Character dood       = new Character();
+         Character dood = new Character();
 
          // Get the PC's name
          dood.SetName();
 
-         // Get the PC's race
-         dood.SetRace();
-
          // Get the PC's Class
          dood.SetClass();
 
+         // Roll some stats
+         dood.SetScores();
+
+         // Get the PC's race
+         dood.SetRace();
+
          // Get the PC's Background
          dood.SetBackground();
-
-         dood.SetScores();
 
          // Test it
          dood.Print();

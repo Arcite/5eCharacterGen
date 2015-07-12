@@ -14,6 +14,7 @@ namespace _5eCharacterGen
       private string Class;         // the PC's class          (PH Chapter 3)
       private string Background;    // the PC's background     (PH Chapter 4)
       private AbilityScore stats;   // the PC's ability scores (PH Chapter 1)
+      private uint age;             // PC's age
 
       public Character()
          // Default constructor, sets all fields to a garbage value
@@ -557,28 +558,65 @@ namespace _5eCharacterGen
          Boolean fValid = false;
          string sInput  = null;
          uint uiInput   = 0;
+         Boolean happy  = false;
 
-         // roll 4 dice, drop the lowest
-         // save the that number to the scores
-         // assign the scores to the stats
-         for(uint i = 0; i < 6; i++)
+         while (!happy)
          {
-            for(uint c = 0; c < 4; c++)
+            fValid = false;
+
+            // roll 4 dice, drop the lowest
+            // save the that number to the scores
+            // assign the scores to the stats
+            for (uint i = 0; i < 6; i++)
             {
-               dice[c] = (uint)rand.Next(1, 7);
+               for (uint c = 0; c < 4; c++)
+               {
+                  dice[c] = (uint)rand.Next(1, 7);
+               }
+
+               Array.Sort<uint>(dice);
+
+               scores[i] = dice[1] + dice[2] + dice[3];
             }
 
-            Array.Sort<uint>(dice);
+            Array.Sort<uint>(scores);
+            Array.Reverse(scores);
 
-            scores[i] = dice[1] + dice[2] + dice[3];
+            Console.WriteLine("{0} {1}, {2}, {3}, {4}, {5}",
+               scores[0], scores[1], scores[2], scores[3],
+               scores[4], scores[5]);
+
+            while(!fValid)
+            {
+               Console.WriteLine("Keep this roll? (1 for yes, 0 for no)");
+
+               sInput = Console.ReadLine();
+
+               if (UInt32.TryParse(sInput, out uiInput))
+               {
+                  if (uiInput == 0)
+                  {
+                     fValid = true;
+                     happy = false;
+                  }
+                  else if (uiInput == 1)
+                  {
+                     fValid = true;
+                     happy = true;
+                  }
+                  else
+                  {
+                     fValid = false;
+                     Console.WriteLine("Error! Invalid input, please 1 or 0");
+                  }
+               }
+               else
+               {
+                  fValid = false;
+                  Console.WriteLine("Error! Invalid input, please 1 or 0");
+               }
+            }            
          }
-
-         Array.Sort<uint>(scores);
-         Array.Reverse(scores);
-
-         Console.WriteLine("{0} {1}, {2}, {3}, {4}, {5}", 
-            scores[0], scores[1], scores[2], scores[3], 
-            scores[4], scores[5]);
 
          Strength       = 0;
          Dexterity      = 0;
@@ -736,7 +774,7 @@ namespace _5eCharacterGen
          SetMods();
       }
 
-      private void SetMods()
+      public void SetMods()
       {
          SetStrMod();
          SetDexMod();
@@ -1215,6 +1253,36 @@ namespace _5eCharacterGen
          {
             Console.WriteLine("Charisma:\t{0}\t({1})", Charisma, chrMod);
          }
+      }
+
+      public void addStrength(uint modifier)
+      {
+         this.Strength += modifier;
+      }
+
+      public void addDexterity(uint modifier)
+      {
+         this.Dexterity += modifier;
+      }
+
+      public void addConstitution(uint modifier)
+      {
+         this.Constitution += modifier;
+      }
+
+      public void addIntelligence(uint modifier)
+      {
+         this.Intelligence += modifier;
+      }
+
+      public void addWisdom(uint modifier)
+      {
+         this.Wisdom += modifier;
+      }
+
+      public void addCharisma(uint modifier)
+      {
+         this.Charisma += modifier;
       }
    }
 }
