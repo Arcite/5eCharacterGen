@@ -1,0 +1,6 @@
+D:\Visual_Studios_Projects\5eCharacterGen\5eCharacterGen\bin\Debug\5eCharacterGen.exe.config
+D:\Visual_Studios_Projects\5eCharacterGen\5eCharacterGen\bin\Debug\5eCharacterGen.exe
+D:\Visual_Studios_Projects\5eCharacterGen\5eCharacterGen\bin\Debug\5eCharacterGen.pdb
+D:\Visual_Studios_Projects\5eCharacterGen\5eCharacterGen\obj\Debug\5eCharacterGen.csprojResolveAssemblyReference.cache
+D:\Visual_Studios_Projects\5eCharacterGen\5eCharacterGen\obj\Debug\5eCharacterGen.exe
+D:\Visual_Studios_Projects\5eCharacterGen\5eCharacterGen\obj\Debug\5eCharacterGen.pdb
