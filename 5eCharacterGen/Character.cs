@@ -317,12 +317,22 @@ namespace _5eCharacterGen
 
    class AbilityScore
    {
+      // Actual Scores
       private uint Strength;
       private uint Dexterity;
       private uint Constitution;
       private uint Intelligence;
       private uint Wisdom;
       private uint Charisma;
+
+      // Modifiers
+      private int strMod;
+      private int dexMod;
+      private int conMod;
+      private int intMod;
+      private int wisMod;
+      private int chrMod;
+
 
       public AbilityScore()
          // randomly rolls 6 numbers, and allows the user to select which stats they go to
@@ -509,17 +519,490 @@ namespace _5eCharacterGen
                }
             }
          }
+
+         SetMods();
+      }
+
+      private void SetMods()
+      {
+         SetStrMod();
+         SetDexMod();
+         SetConMod();
+         SetIntMod();
+         SetWisMod();
+         SetChrMod();
+      }
+
+      private void SetStrMod()
+      {
+         switch (Strength)
+         {
+            case 1:
+               strMod = -5;
+               break;
+            case 2:
+            case 3:
+               strMod = -4;
+               break;
+            case 4:
+            case 5:
+               strMod = -3;
+               break;
+            case 6:
+            case 7:
+               strMod = -2;
+               break;
+            case 8:
+            case 9:
+               strMod = -1;
+               break;
+            case 10:
+            case 11:
+               strMod = 0;
+               break;
+            case 12:
+            case 13:
+               strMod = 1;
+               break;
+            case 14:
+            case 15:
+               strMod = 2;
+               break;
+            case 16:
+            case 17:
+               strMod = 3;
+               break;
+            case 18:
+            case 19:
+               strMod = 4;
+               break;
+            case 20:
+            case 21:
+               strMod = 5;
+               break;
+            case 22:
+            case 23:
+               strMod = 6;
+               break;
+            case 24:
+            case 25:
+               strMod = 7;
+               break;
+            case 26:
+            case 27:
+               strMod = 8;
+               break;
+            case 28:
+            case 29:
+               strMod = 9;
+               break;
+            default:
+               strMod = 10;
+               break;
+         }
+      }
+
+      private void SetDexMod()
+      {
+         switch (Dexterity)
+         {
+            case 1:
+               dexMod = -5;
+               break;
+            case 2:
+            case 3:
+               dexMod = -4;
+               break;
+            case 4:
+            case 5:
+               dexMod = -3;
+               break;
+            case 6:
+            case 7:
+               dexMod = -2;
+               break;
+            case 8:
+            case 9:
+               dexMod = -1;
+               break;
+            case 10:
+            case 11:
+               dexMod = 0;
+               break;
+            case 12:
+            case 13:
+               dexMod = 1;
+               break;
+            case 14:
+            case 15:
+               dexMod = 2;
+               break;
+            case 16:
+            case 17:
+               dexMod = 3;
+               break;
+            case 18:
+            case 19:
+               dexMod = 4;
+               break;
+            case 20:
+            case 21:
+               dexMod = 5;
+               break;
+            case 22:
+            case 23:
+               dexMod = 6;
+               break;
+            case 24:
+            case 25:
+               dexMod = 7;
+               break;
+            case 26:
+            case 27:
+               dexMod = 8;
+               break;
+            case 28:
+            case 29:
+               dexMod = 9;
+               break;
+            default:
+               dexMod = 10;
+               break;
+         }
+      }
+
+      private void SetConMod()
+      {
+         switch (Constitution)
+         {
+            case 1:
+               conMod = -5;
+               break;
+            case 2:
+            case 3:
+               conMod = -4;
+               break;
+            case 4:
+            case 5:
+               conMod = -3;
+               break;
+            case 6:
+            case 7:
+               conMod = -2;
+               break;
+            case 8:
+            case 9:
+               conMod = -1;
+               break;
+            case 10:
+            case 11:
+               conMod = 0;
+               break;
+            case 12:
+            case 13:
+               conMod = 1;
+               break;
+            case 14:
+            case 15:
+               conMod = 2;
+               break;
+            case 16:
+            case 17:
+               conMod = 3;
+               break;
+            case 18:
+            case 19:
+               conMod = 4;
+               break;
+            case 20:
+            case 21:
+               conMod = 5;
+               break;
+            case 22:
+            case 23:
+               conMod = 6;
+               break;
+            case 24:
+            case 25:
+               conMod = 7;
+               break;
+            case 26:
+            case 27:
+               conMod = 8;
+               break;
+            case 28:
+            case 29:
+               conMod = 9;
+               break;
+            default:
+               conMod = 10;
+               break;
+         }
+      }
+
+      private void SetIntMod()
+      {
+         switch (Intelligence)
+         {
+            case 1:
+               intMod = -5;
+               break;
+            case 2:
+            case 3:
+               intMod = -4;
+               break;
+            case 4:
+            case 5:
+               intMod = -3;
+               break;
+            case 6:
+            case 7:
+               intMod = -2;
+               break;
+            case 8:
+            case 9:
+               intMod = -1;
+               break;
+            case 10:
+            case 11:
+               intMod = 0;
+               break;
+            case 12:
+            case 13:
+               intMod = 1;
+               break;
+            case 14:
+            case 15:
+               intMod = 2;
+               break;
+            case 16:
+            case 17:
+               intMod = 3;
+               break;
+            case 18:
+            case 19:
+               intMod = 4;
+               break;
+            case 20:
+            case 21:
+               intMod = 5;
+               break;
+            case 22:
+            case 23:
+               intMod = 6;
+               break;
+            case 24:
+            case 25:
+               intMod = 7;
+               break;
+            case 26:
+            case 27:
+               intMod = 8;
+               break;
+            case 28:
+            case 29:
+               intMod = 9;
+               break;
+            default:
+               intMod = 10;
+               break;
+         }
+      }
+
+      private void SetWisMod()
+      {
+         switch (Wisdom)
+         {
+            case 1:
+               wisMod = -5;
+               break;
+            case 2:
+            case 3:
+               wisMod = -4;
+               break;
+            case 4:
+            case 5:
+               wisMod = -3;
+               break;
+            case 6:
+            case 7:
+               wisMod = -2;
+               break;
+            case 8:
+            case 9:
+               wisMod = -1;
+               break;
+            case 10:
+            case 11:
+               wisMod = 0;
+               break;
+            case 12:
+            case 13:
+               wisMod = 1;
+               break;
+            case 14:
+            case 15:
+               wisMod = 2;
+               break;
+            case 16:
+            case 17:
+               wisMod = 3;
+               break;
+            case 18:
+            case 19:
+               wisMod = 4;
+               break;
+            case 20:
+            case 21:
+               wisMod = 5;
+               break;
+            case 22:
+            case 23:
+               wisMod = 6;
+               break;
+            case 24:
+            case 25:
+               wisMod = 7;
+               break;
+            case 26:
+            case 27:
+               wisMod = 8;
+               break;
+            case 28:
+            case 29:
+               wisMod = 9;
+               break;
+            default:
+               wisMod = 10;
+               break;
+         }
+      }
+
+      private void SetChrMod()
+      {
+         switch (Charisma)
+         {
+            case 1:
+               chrMod = -5;
+               break;
+            case 2:
+            case 3:
+               chrMod = -4;
+               break;
+            case 4:
+            case 5:
+               chrMod = -3;
+               break;
+            case 6:
+            case 7:
+               chrMod = -2;
+               break;
+            case 8:
+            case 9:
+               chrMod = -1;
+               break;
+            case 10:
+            case 11:
+               chrMod = 0;
+               break;
+            case 12:
+            case 13:
+               chrMod = 1;
+               break;
+            case 14:
+            case 15:
+               chrMod = 2;
+               break;
+            case 16:
+            case 17:
+               chrMod = 3;
+               break;
+            case 18:
+            case 19:
+               chrMod = 4;
+               break;
+            case 20:
+            case 21:
+               chrMod = 5;
+               break;
+            case 22:
+            case 23:
+               chrMod = 6;
+               break;
+            case 24:
+            case 25:
+               chrMod = 7;
+               break;
+            case 26:
+            case 27:
+               chrMod = 8;
+               break;
+            case 28:
+            case 29:
+               chrMod = 9;
+               break;
+            default:
+               chrMod = 10;
+               break;
+         }
       }
 
       public void Print()
          // Prints the attributes
       {
-         Console.WriteLine("Strength:     {0}", Strength);
-         Console.WriteLine("Dexterity:    {0}", Dexterity);
-         Console.WriteLine("Constitution: {0}", Constitution);
-         Console.WriteLine("Intelligence: {0}", Intelligence);
-         Console.WriteLine("Wisdom:       {0}", Wisdom);
-         Console.WriteLine("Charisma:     {0}", Charisma);
+         if (strMod >= 0)
+         {
+            Console.WriteLine("Strength:\t{0}\t(+{1})", Strength, strMod);
+         }
+         else
+         {
+            Console.WriteLine("Strength:\t{0}\t({1})", Strength, strMod);
+         }
+
+         if (dexMod >= 0)
+         {
+            Console.WriteLine("Dexterity:\t{0}\t(+{1})", Dexterity, dexMod);
+         }
+         else
+         {
+            Console.WriteLine("Dexterity:\t{0}\t({1})", Dexterity, dexMod);
+         }
+
+         if (conMod >= 0)
+         {
+            Console.WriteLine("Constitution:\t{0}\t(+{1})", Constitution, conMod);
+         }
+         else
+         {
+            Console.WriteLine("Constitution:\t{0}\t({1})", Constitution, conMod);
+         }
+
+         if (intMod >= 0)
+         {
+            Console.WriteLine("Intelligence:\t{0}\t(+{1})", Intelligence, intMod);
+         }
+         else
+         {
+            Console.WriteLine("Intelligence:\t{0}\t({1})", Intelligence, intMod);
+         }
+
+         if (wisMod >= 0)
+         {
+            Console.WriteLine("Wisdom:\t\t{0}\t(+{1})", Wisdom, wisMod);
+         }
+         else
+         {
+            Console.WriteLine("Wisdom:\t\t{0}\t({1})", Wisdom, wisMod);
+         }
+
+         if (chrMod >= 0)
+         {
+            Console.WriteLine("Charisma:\t{0}\t(+{1})", Charisma, chrMod);
+         }
+         else
+         {
+            Console.WriteLine("Charisma:\t{0}\t({1})", Charisma, chrMod);
+         }
       }
    }
 }
