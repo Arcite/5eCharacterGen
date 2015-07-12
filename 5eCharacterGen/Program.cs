@@ -15,7 +15,7 @@ namespace _5eCharacterGen
       {
 
          // Data Dictionary
-         Character dood = new Character();
+         Character dood       = new Character();
 
          // Get the PC's name
          dood.SetName();
@@ -28,6 +28,8 @@ namespace _5eCharacterGen
 
          // Get the PC's Background
          dood.SetBackground();
+
+         dood.SetScores();
 
          // Test it
          dood.Print();

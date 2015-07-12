@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace _5eCharacterGen
 {
    class Character
    {
       private string Name;          // the name of the PC
-      private string Race;          // the PC's race        (PH Chapter 2)
-      private string Class;         // the PC's class       (PH Chapter 3)
-      private string Background;    // the PC's background  (PH Chapter 4)
+      private string Race;          // the PC's race           (PH Chapter 2)
+      private string Class;         // the PC's class          (PH Chapter 3)
+      private string Background;    // the PC's background     (PH Chapter 4)
+      private AbilityScore stats;   // the PC's ability scores (PH Chapter 1)
 
       public Character()
          // Default constructor, sets all fields to a garbage value
@@ -43,6 +45,7 @@ namespace _5eCharacterGen
       public void Print()
       {
          System.Console.WriteLine("{0} {1} the {2} {3}", Background, Name, Race, Class);
+         stats.Print();
       }
 
       public void SetName()
@@ -61,7 +64,7 @@ namespace _5eCharacterGen
          // Main loop
          while (!fValid)
          {
-            Console.WriteLine("Choose one of the following races: ");
+            Console.WriteLine("\nChoose one of the following races: ");
             Console.WriteLine("1.  Dragonborn");
             Console.WriteLine("2.  Dwarf");
             Console.WriteLine("3.  Elf");
@@ -140,7 +143,7 @@ namespace _5eCharacterGen
          // Main loop
          while (!fValid)
          {
-            Console.WriteLine("Choose one of the following classes: ");
+            Console.WriteLine("\nChoose one of the following classes: ");
             Console.WriteLine("1.  Barbarian");
             Console.WriteLine("2.  Bard");
             Console.WriteLine("3.  Cleric");
@@ -226,7 +229,7 @@ namespace _5eCharacterGen
          // Main loop
          while (!fValid)
          {
-            Console.WriteLine("Choose one of the following Backgrounds: ");
+            Console.WriteLine("\nChoose one of the following Backgrounds: ");
             Console.WriteLine("1.  Acolyte");
             Console.WriteLine("2.  Charlatan");
             Console.WriteLine("3.  Criminal");
@@ -304,6 +307,219 @@ namespace _5eCharacterGen
                Console.WriteLine("Error! Invalid input, please enter a number in the range [1,13]");
             }
          }
+      }
+
+      public void SetScores()
+      {
+         stats = new AbilityScore();
+      }
+   }
+
+   class AbilityScore
+   {
+      private uint Strength;
+      private uint Dexterity;
+      private uint Constitution;
+      private uint Intelligence;
+      private uint Wisdom;
+      private uint Charisma;
+
+      public AbilityScore()
+         // randomly rolls 6 numbers, and allows the user to select which stats they go to
+      {
+         // Data Dictionary
+         Random rand    = new Random((int)DateTime.Now.Ticks & 0x0000FFFF);
+         uint[] dice    = new uint[4];
+         uint[] scores  = new uint[6];
+         Boolean fValid = false;
+         string sInput  = null;
+         uint uiInput   = 0;
+
+         // roll 4 dice, drop the lowest
+         // save the that number to the scores
+         // assign the scores to the stats
+         for(uint i = 0; i < 6; i++)
+         {
+            for(uint c = 0; c < 4; c++)
+            {
+               dice[c] = (uint)rand.Next(1, 7);
+            }
+
+            Array.Sort<uint>(dice);
+
+            scores[i] = dice[1] + dice[2] + dice[3];
+         }
+
+         Array.Sort<uint>(scores);
+         Array.Reverse(scores);
+
+         Console.WriteLine("{0} {1}, {2}, {3}, {4}, {5}", 
+            scores[0], scores[1], scores[2], scores[3], 
+            scores[4], scores[5]);
+
+         Strength       = 0;
+         Dexterity      = 0;
+         Constitution   = 0;
+         Intelligence   = 0;
+         Wisdom         = 0;
+         Charisma       = 0;
+
+         for(uint i = 0; i < 6; i++)
+         {
+            fValid = false;
+
+            while (!fValid)
+            {
+               Console.WriteLine("\nPick a stat for {0}:", scores[i]);
+
+               if (Strength == 0)
+               {
+                  Console.WriteLine("1. Strength ");
+               }
+
+               if (Dexterity == 0)
+               {
+                  Console.WriteLine("2. Dexterity ");
+               }
+
+               if (Constitution == 0)
+               {
+                  Console.WriteLine("3. Constitution ");
+               }
+
+               if (Intelligence == 0)
+               {
+                  Console.WriteLine("4. Intelligence ");
+               }
+
+               if (Wisdom == 0)
+               {
+                  Console.WriteLine("5. Wisdom ");
+               }
+
+               if (Charisma == 0)
+               {
+                  Console.WriteLine("6. Charisma ");
+               }
+
+               sInput = Console.ReadLine();
+
+               if (UInt32.TryParse(sInput, out uiInput))
+               {
+                  if ((uiInput >= 1) && (uiInput <= 6))
+                  {
+                     switch (uiInput)
+                     {
+                        case 1:
+                           if (Strength != 0)
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter " +
+                                 "a number that was printed");
+                              fValid = false;
+                           }
+                           else
+                           {
+                              Strength = scores[i];
+                              fValid = true;
+                           }
+                           break;
+                        case 2:
+                           if (Dexterity != 0)
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter " +
+                                 "a number that was printed");
+                              fValid = false;
+                           }
+                           else
+                           {
+                              Dexterity = scores[i];
+                              fValid = true;
+                           }
+                           break;
+                        case 3:
+                           if (Constitution != 0)
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter " +
+                                 "a number that was printed");
+                              fValid = false;
+                           }
+                           else
+                           {
+                              Constitution = scores[i];
+                              fValid = true;
+                           }
+                           break;
+                        case 4:
+                           if (Intelligence != 0)
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter " +
+                                 "a number that was printed");
+                              fValid = false;
+                           }
+                           else
+                           {
+                              Intelligence = scores[i];
+                              fValid = true;
+                           }
+                           break;
+                        case 5:
+                           if (Wisdom != 0)
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter " +
+                                 "a number that was printed");
+                              fValid = false;
+                           }
+                           else
+                           {
+                              Wisdom = scores[i];
+                              fValid = true;
+                           }
+                           break;
+                        case 6:
+                           if (Charisma != 0)
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter " +
+                                 "a number that was printed");
+                              fValid = false;
+                           }
+                           else
+                           {
+                              Charisma = scores[i];
+                              fValid = true;
+                           }
+                           break;
+                     }
+                  }
+                  else
+                  {
+                     Console.WriteLine(
+                        "Error! Invalid input, please enter a number that was printed");
+                  }
+               }
+               else
+               {
+                  Console.WriteLine(
+                     "Error! Invalid input, please enter a number that was printed");
+               }
+            }
+         }
+      }
+
+      public void Print()
+         // Prints the attributes
+      {
+         Console.WriteLine("Strength:     {0}", Strength);
+         Console.WriteLine("Dexterity:    {0}", Dexterity);
+         Console.WriteLine("Constitution: {0}", Constitution);
+         Console.WriteLine("Intelligence: {0}", Intelligence);
+         Console.WriteLine("Wisdom:       {0}", Wisdom);
+         Console.WriteLine("Charisma:     {0}", Charisma);
       }
    }
 }
