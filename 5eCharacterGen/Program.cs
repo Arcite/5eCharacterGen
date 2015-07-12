@@ -7,9 +7,12 @@ using System.Windows;
 
 namespace _5eCharacterGen
 {
+   // TODO: add a reroll skills function
+   // TODO: add a enter your own skills
+
+
    class Program
    {
-
 
       static void Main(string[] args)
       {
@@ -33,6 +36,9 @@ namespace _5eCharacterGen
 
          // Test it
          dood.Print();
+
+         Console.WriteLine("\nPress any key to exit.");
+         Console.ReadLine();
       }
    }
 }

@@ -90,16 +90,189 @@ namespace _5eCharacterGen
                         this.Race =  "Dragonborn";
                         break;
                      case 2:
-                        this.Race = "Dwarf";
+                        fValid = false;
+
+                        while(!fValid)
+                        {
+                           Console.WriteLine("\nChoose a subrace: ");
+                           Console.WriteLine("1. Hill Dwarf");
+                           Console.WriteLine("2. Mountain Dwarf");
+
+                           sInput = Console.ReadLine();
+
+                           if (UInt32.TryParse(sInput, out uiInput))
+                           {
+                              if((uiInput == 1) || (uiInput == 2))
+                              {
+                                 fValid = true;
+
+                                 if (uiInput == 1)
+                                 {
+                                    this.Race = "Hill Dwarf";
+                                 }
+                                 else
+                                 {
+                                    this.Race = "Mountain Dwarf";
+                                 }
+                              }
+                              else
+                              {
+                                 Console.WriteLine(
+                                    "Error! Invalid input, please enter a number " +
+                                    "in the range [1,2]");
+                              }
+                           }
+                           else
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter a number in" +
+                                 "the range [1,2]");
+                           }
+                        }
                         break;
                      case 3:
-                        this.Race = "Elf";
+                        fValid = false;
+
+                        while(!fValid)
+                        {
+                           Console.WriteLine("\nChoose a subrace: ");
+                           Console.WriteLine("1. High Elf");
+                           Console.WriteLine("2. Wood Elf");
+                           Console.WriteLine("3. Dark Elf (Drow)");
+
+                           sInput = Console.ReadLine();
+
+                           if (UInt32.TryParse(sInput, out uiInput))
+                           {
+                              if((uiInput >= 1) || (uiInput <= 3))
+                              {
+                                 fValid = true;
+
+                                 switch (uiInput)
+                                 {
+                                    case 1:
+                                       this.Race = "High Elf";
+                                       break;
+                                    case 2:
+                                       this.Race = "Wood Elf";
+                                       break;
+                                    case 3:
+                                       this.Race = "Dark Elf (Drow)";
+                                       break;
+                                    default:
+                                       this.Race = "ERROR";
+                                       break;
+                                 }
+                              }
+                              else
+                              {
+                                 Console.WriteLine(
+                                    "Error! Invalid input, please enter a number " +
+                                    "in the range [1,3]");
+                              }
+                           }
+                           else
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter a number in" +
+                                 "the range [1,3]");
+                           }
+                        }
                         break;
                      case 4:
-                        this.Race = "Genasi";
+                        fValid = false;
+
+                        while(!fValid)
+                        {
+                           Console.WriteLine("\nChoose a subrace: ");
+                           Console.WriteLine("1. Air Genasi");
+                           Console.WriteLine("2. Earth Genasi");
+                           Console.WriteLine("3. Fire Genasi");
+                           Console.WriteLine("4. Water Genasi");
+
+                           sInput = Console.ReadLine();
+
+                           if (UInt32.TryParse(sInput, out uiInput))
+                           {
+                              if((uiInput >= 1) || (uiInput <= 4))
+                              {
+                                 fValid = true;
+
+                                 switch (uiInput)
+                                 {
+                                    case 1:
+                                       this.Race = "Air Genasi";
+                                       break;
+                                    case 2:
+                                       this.Race = "Earth Genasi";
+                                       break;
+                                    case 3:
+                                       this.Race = "Fire Genasi";
+                                       break;
+                                    case 4:
+                                       this.Race = "Water Genasi";
+                                       break;
+                                    default:
+                                       this.Race = "ERROR";
+                                       break;
+                                 }
+                              }
+                              else
+                              {
+                                 Console.WriteLine(
+                                    "Error! Invalid input, please enter a number " +
+                                    "in the range [1,3]");
+                              }
+                           }
+                           else
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter a number in" +
+                                 "the range [1,3]");
+                           }
+                        }
                         break;
                      case 5:
-                        this.Race = "Gnome";
+                        fValid = false;
+
+                        while(!fValid)
+                        {
+                           Console.WriteLine("\nChoose a subrace: ");
+                           Console.WriteLine("1. Forest Gnome");
+                           Console.WriteLine("2. Rock Gnome");
+
+                           sInput = Console.ReadLine();
+
+                           if (UInt32.TryParse(sInput, out uiInput))
+                           {
+                              if((uiInput == 1) || (uiInput == 2))
+                              {
+                                 fValid = true;
+
+                                 if (uiInput == 1)
+                                 {
+                                    this.Race = "Forest Gnome";
+                                 }
+                                 else
+                                 {
+                                    this.Race = "Rock Gnome";
+                                 }
+                              }
+                              else
+                              {
+                                 Console.WriteLine(
+                                    "Error! Invalid input, please enter a number " +
+                                    "in the range [1,2]");
+                              }
+                           }
+                           else
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter a number in" +
+                                 "the range [1,2]");
+                           }
+                        }
+
                         break;
                      case 6:
                         this.Race = "Half-Elf";
@@ -108,7 +281,45 @@ namespace _5eCharacterGen
                         this.Race = "Half-Orc";
                         break;
                      case 8:
-                        this.Race = "Halfling";
+                        fValid = false;
+
+                        while(!fValid)
+                        {
+                           Console.WriteLine("\nChoose a subrace: ");
+                           Console.WriteLine("1. Lightfoot Halfling");
+                           Console.WriteLine("2. Stout Halfling");
+
+                           sInput = Console.ReadLine();
+
+                           if (UInt32.TryParse(sInput, out uiInput))
+                           {
+                              if((uiInput == 1) || (uiInput == 2))
+                              {
+                                 fValid = true;
+
+                                 if (uiInput == 1)
+                                 {
+                                    this.Race = "Lightfoot Gnome";
+                                 }
+                                 else
+                                 {
+                                    this.Race = "Stout Gnome";
+                                 }
+                              }
+                              else
+                              {
+                                 Console.WriteLine(
+                                    "Error! Invalid input, please enter a number " +
+                                    "in the range [1,2]");
+                              }
+                           }
+                           else
+                           {
+                              Console.WriteLine(
+                                 "Error! Invalid input, please enter a number in" +
+                                 "the range [1,2]");
+                           }
+                        }
                         break;
                      case 9:
                         this.Race = "Human";
@@ -123,12 +334,14 @@ namespace _5eCharacterGen
                }
                else
                {
-                  Console.WriteLine("Error! Invalid input, please enter a number in the range [1,10]");
+                  Console.WriteLine(
+                     "Error! Invalid input, please enter a number in the range [1,10]");
                }
             }
             else
             {
-               Console.WriteLine("Error! Invalid input, please enter a number in the range [1,10]");
+               Console.WriteLine(
+                  "Error! Invalid input, please enter a number in the range [1,10]");
             }
          }
       }
@@ -948,7 +1161,6 @@ namespace _5eCharacterGen
       }
 
       public void Print()
-         // Prints the attributes
       {
          if (strMod >= 0)
          {
