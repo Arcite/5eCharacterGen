@@ -42,7 +42,7 @@ namespace _5eCharacterGen
 
       public void Print()
       {
-         System.Console.WriteLine("{0} {1} the {2} {3}\n", Background, Name, Race, Class);
+         System.Console.WriteLine("{0} {1} the {2} {3}", Background, Name, Race, Class);
       }
    }
 }
