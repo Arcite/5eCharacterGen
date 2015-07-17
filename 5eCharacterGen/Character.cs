@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Threading;
 
 namespace _5eCharacterGen
 {
@@ -15,23 +14,37 @@ namespace _5eCharacterGen
       private string Background;    // the PC's background     (PH Chapter 4)
       private AbilityScore stats;   // the PC's ability scores (PH Chapter 1)
       private uint age;             // PC's age
+      private uint speed;           // PC's speed
+      private string abilities;     // PC's abilities
+      private string proficiencies; // PC's proficiencies
+      private string languages;      // PC's languages
 
       public Character()
          // Default constructor, sets all fields to a garbage value
       {
          Name        = "N/A";
-         Race        = "N/A";
-         Class       = "N/A";
-         Background  = "N/A";
+         this.Race = "N/A";
+         this.Class = "N/A";
+         this.Background = "N/A";
+         this.age = 0;
+         this.speed = 30;
+         this.abilities = "";
+         this.proficiencies = "";
+         this.languages = "";
       }
 
       public Character(string name)
          // Constructor that sets just the name, and all other fields to garbage values
       {
-         this.Name         = name;
-         this.Race         = "N/A";
-         this.Class        = "N/A";
-         this.Background   = "N/A";
+         this.Name            = name;
+         this.Race            = "N/A";
+         this.Class           = "N/A";
+         this.Background      = "N/A";
+         this.age             = 0;           
+         this.speed           = 30;
+         this.abilities       = "";
+         this.proficiencies   = "";
+         this.languages       = "";
       }
 
       public Character(string name, string race, string charClass, string background)
@@ -526,6 +539,83 @@ namespace _5eCharacterGen
       public void SetScores()
       {
          stats = new AbilityScore();
+         AddRacial();
+         stats.SetMods();
+      }
+
+      private void AddRacial()
+      {
+         switch (Race)
+         {
+            case "Dragonborn":
+               break;
+            case "Hill Dwarf":
+               // Dwarf
+               stats.addConstitution(2);
+               speed = 25;
+               abilities = String.Concat(abilities, "Darkvision (60 ft) ");
+               abilities = String.Concat(abilities, "Dwarven Resilience ");
+               proficiencies = String.Concat(proficiencies,
+                  "Dwarven Combat Training: Battleaxe, handaxe, " +
+                  "light hammer, and warhammer.");
+               proficiencies = String.Concat(proficiencies,
+                  " Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.");
+               languages = String.Concat(languages, "Dwarf: Common and Dwarvish");
+               
+               // Hill Dwarf
+               stats.addWisdom(1);
+               proficiencies = String.Concat(proficiencies,
+                  " Dwarven Toughness");
+               break;
+            case "Mountain Dwarf":
+               // Dwarf
+               stats.addConstitution(2);
+               speed = 25;
+               abilities = String.Concat(abilities, "Darkvision (60 ft) ");
+               abilities = String.Concat(abilities, "Dwarven Resilience ");
+               proficiencies = String.Concat(proficiencies,
+                  "Dwarven Combat Training : Battleaxe, handaxe, " +
+                  "light hammer, and warhammer.");
+               proficiencies = String.Concat(proficiencies,
+                  " Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.");
+               languages = String.Concat(languages, "Dwarf: Common and Dwarvish");
+
+               // Mountain Dwarf
+               stats.addStrength(2);
+               proficiencies = String.Concat(proficiencies,
+                  " Dwarven Armor Training: light and medium armor.");
+               break;
+            case "High Elf":
+               break;
+            case "Wood Elf":
+               break;
+            case "Dark Elf (Drow)":
+               break;
+            case "Air Genasi":
+               break;
+            case "Earth Genasi":
+               break;
+            case "Fire Genasi":
+               break;
+            case "Water Genasi":
+               break;
+            case "Forest Gnome":
+               break;
+            case "Rock Gnome":
+               break;
+            case "Half-Elf":
+               break;
+            case "Half-Orc":
+               break;
+            case "Lightfoot Halfling":
+               break;
+            case "Stout Gnome":
+               break;
+            case "Human":
+               break;
+            case "Tiefling":
+               break;
+         }
       }
    }
 

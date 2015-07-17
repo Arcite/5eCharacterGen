@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 
 namespace _5eCharacterGen
 {
@@ -26,11 +25,11 @@ namespace _5eCharacterGen
          // Get the PC's Class
          dood.SetClass();
 
-         // Roll some stats
-         dood.SetScores();
-
          // Get the PC's race
          dood.SetRace();
+
+         // Roll some stats
+         dood.SetScores();
 
          // Get the PC's Background
          dood.SetBackground();
