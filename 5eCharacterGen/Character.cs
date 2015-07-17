@@ -60,6 +60,10 @@ namespace _5eCharacterGen
       {
          System.Console.WriteLine("{0} {1} the {2} {3}", Background, Name, Race, Class);
          stats.Print();
+         System.Console.WriteLine("\nSpeed: {0}", speed);
+         System.Console.WriteLine("Abilities: {0}", abilities);
+         System.Console.WriteLine("Proficiencies: {0}", proficiencies);
+         System.Console.WriteLine("Languages: {0}", languages);
       }
 
       public void SetName()
@@ -547,49 +551,112 @@ namespace _5eCharacterGen
       {
          switch (Race)
          {
+               // TODO: finish subraces
+               // TODO: work on spacing
             case "Dragonborn":
                break;
             case "Hill Dwarf":
                // Dwarf
                stats.addConstitution(2);
                speed = 25;
-               abilities = String.Concat(abilities, "Darkvision (60 ft) ");
-               abilities = String.Concat(abilities, "Dwarven Resilience ");
+               abilities = String.Concat(abilities, "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities, "Dwarven Resiliencen");
                proficiencies = String.Concat(proficiencies,
                   "Dwarven Combat Training: Battleaxe, handaxe, " +
-                  "light hammer, and warhammer.");
+                  "light hammer, and warhammer.\n");
                proficiencies = String.Concat(proficiencies,
-                  " Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.");
-               languages = String.Concat(languages, "Dwarf: Common and Dwarvish");
+                  "Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.\n");
+               languages = String.Concat(languages, "Dwarf: Common and Dwarvish\n");
                
                // Hill Dwarf
                stats.addWisdom(1);
                proficiencies = String.Concat(proficiencies,
-                  " Dwarven Toughness");
+                  "Dwarven Toughness\n");
                break;
             case "Mountain Dwarf":
                // Dwarf
                stats.addConstitution(2);
                speed = 25;
-               abilities = String.Concat(abilities, "Darkvision (60 ft) ");
-               abilities = String.Concat(abilities, "Dwarven Resilience ");
+               abilities = String.Concat(abilities, "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities, "Dwarven Resilience\n");
                proficiencies = String.Concat(proficiencies,
                   "Dwarven Combat Training : Battleaxe, handaxe, " +
-                  "light hammer, and warhammer.");
+                  "light hammer, and warhammer.\n");
                proficiencies = String.Concat(proficiencies,
-                  " Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.");
+                  "Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.\n");
                languages = String.Concat(languages, "Dwarf: Common and Dwarvish");
 
                // Mountain Dwarf
                stats.addStrength(2);
                proficiencies = String.Concat(proficiencies,
-                  " Dwarven Armor Training: light and medium armor.");
+                  "Dwarven Armor Training: light and medium armor.\n");
                break;
             case "High Elf":
+               // Elf
+               stats.addDexterity(2);
+               speed = 30;
+               proficiencies = String.Concat(proficiencies,
+                  "Darkvision (60 ft)\n");
+               proficiencies = String.Concat(proficiencies,
+                  "Keen Senses: Perception\n");
+               abilities = String.Concat(abilities,
+                  "Fey Ancestry\n");
+               abilities = String.Concat(abilities,
+                  "Trance\n");
+               languages = String.Concat(languages, "Elf: Common and Elvish\n");
+
+               // High Elf
+               stats.addIntelligence(1);
+               proficiencies = String.Concat(proficiencies, 
+                  "Elf Weapon Training: Longsword, " +
+                  "shortsword, shortbow, and longbow.\n");
+               abilities = String.Concat(abilities, "Cantrip\n");
+               languages = String.Concat(languages, "Extra Language\n");
                break;
             case "Wood Elf":
+               // Elf
+               stats.addDexterity(2);
+               proficiencies = String.Concat(proficiencies,
+                  "Darkvision (60 ft)\n");
+               proficiencies = String.Concat(proficiencies,
+                  "Keen Senses: Perception\n");
+               abilities = String.Concat(abilities,
+                  "Fey Ancestry\n");
+               abilities = String.Concat(abilities,
+                  "Trance\n");
+               languages = String.Concat(languages, "Elf: Common and Elvish\n");
+
+               // Wood Elf
+               stats.addWisdom(1);
+               proficiencies = String.Concat(proficiencies,
+                  "Elf Weapon Training: Longsword, " +
+                  "shortsword, shortbow, and longbow.\n");
+               speed = 35;
+               abilities = String.Concat(abilities,
+                  "Mask of the Wild.\n");
                break;
             case "Dark Elf (Drow)":
+               // Elf
+               stats.addDexterity(2);
+               speed = 30;
+               proficiencies = String.Concat(proficiencies,
+                  "Keen Senses: Perception\n");
+               abilities = String.Concat(abilities,
+                  "Fey Ancestry\n");
+               abilities = String.Concat(abilities,
+                  "Trance\n");
+               languages = String.Concat(languages, "Elf: Common and Elvish\n");
+
+               // Dark Elf (Drow)
+               stats.addCharisma(1);
+               proficiencies = String.Concat(proficiencies,
+                  "Superior Darkvision (120 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Sunlight Sensitivity\n");
+               abilities = String.Concat(abilities,
+                  "Drow Magic\n");
+               proficiencies = String.Concat(proficiencies,
+                  "Drow Weapon Training: Rapiers, shortswords, and hand crossbows.\n");
                break;
             case "Air Genasi":
                break;
