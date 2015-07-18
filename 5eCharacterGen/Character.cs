@@ -8,6 +8,8 @@ namespace _5eCharacterGen
 {
    class Character
    {
+      // TODO: write functions for add ability etc...
+
       private string Name;          // the name of the PC
       private string Race;          // the PC's race           (PH Chapter 2)
       private string Class;         // the PC's class          (PH Chapter 3)
@@ -554,6 +556,17 @@ namespace _5eCharacterGen
                // TODO: finish subraces
                // TODO: work on spacing
             case "Dragonborn":
+               stats.addStrength(2);
+               stats.addCharisma(1);
+               speed = 30;
+               abilities = String.Concat(abilities,
+                  "Draconic Ancestry (PH 34)\n");
+               abilities = String.Concat(abilities,
+                  "Breath Weapon (PH 34)\n");
+               abilities = String.Concat(abilities,
+                  "Damage Resistance (PH 34)\n");
+               languages = String.Concat(languages,
+                  "Common and Draconis\n");
                break;
             case "Hill Dwarf":
                // Dwarf
@@ -844,16 +857,83 @@ namespace _5eCharacterGen
                   "Common, Elvish, and one extra language of your choice.\n");
                break;
             case "Half-Orc":
+               stats.addStrength(2);
+               stats.addConstitution(1);
+               speed = 30;
+               abilities = String.Concat(abilities,
+                  "Darkvision (60 ft)\n");
+               proficiencies = String.Concat(proficiencies,
+                  "Intimidation (Menacing)\n");
+               abilities = String.Concat(abilities,
+                  "Relentless Endurance (PH 41)\n");
+               abilities = String.Concat(abilities,
+                  "Savage Attacks (PH 41)\n");
+               languages = String.Concat(languages,
+                  "Common and Ord\n");
                break;
             case "Lightfoot Halfling":
+               // Halfling
+               stats.addDexterity(2);
+               speed = 25;
+               abilities = String.Concat(abilities,
+                  "Lucky (PH 28)\n");
+               abilities = String.Concat(abilities,
+                  "Brave (PH 28)\n");
+               abilities = String.Concat(abilities,
+                  "Halfling Nimbleness (PH 28)\n");
+               languages = String.Concat(languages,
+                  "Common and Halfling\n");
+
+               // Lightfood
+               stats.addCharisma(1);
+               abilities = String.Concat(abilities,
+                  "Naturally Stealthy (PH 28)\n");
                break;
             case "Stout Halfling":
+               // Halfling
+               stats.addDexterity(2);
+               speed = 25;
+               abilities = String.Concat(abilities,
+                  "Lucky (PH 28)\n");
+               abilities = String.Concat(abilities,
+                  "Brave (PH 28)\n");
+               abilities = String.Concat(abilities,
+                  "Halfling Nimbleness (PH 28)\n");
+               languages = String.Concat(languages,
+                  "Common and Halfling\n");
+
+               // Stout
+               stats.addConstitution(1);
+               abilities = String.Concat(abilities,
+                  "Stout Resilience (PH 28)\n");
                break;
             case "Human":
+               stats.addCharisma(1);
+               stats.addConstitution(1);
+               stats.addDexterity(1);
+               stats.addIntelligence(1);
+               stats.addStrength(1);
+               stats.addWisdom(1);
+               speed = 30;
+               languages = String.Concat(languages,
+                  "Common and one extra language of your choice\n");
                break;
             case "Tiefling":
+               stats.addIntelligence(1);
+               stats.addCharisma(2);
+               speed = 30;
+               abilities = String.Concat(abilities,
+                  "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Hellish Resistance (PH 43)\n");
+               abilities = String.Concat(abilities,
+                  "Infernal Legacy (PH 43)\n");
+               languages = String.Concat(languages,
+                  "Common and Infernal\n");
                break;
          }
+
+         stats.SetMods();
       }
    }
 
