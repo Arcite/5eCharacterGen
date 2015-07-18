@@ -659,24 +659,195 @@ namespace _5eCharacterGen
                   "Drow Weapon Training: Rapiers, shortswords, and hand crossbows.\n");
                break;
             case "Air Genasi":
+               // Genasi
+               stats.addConstitution(2);
+               speed = 30;
+               languages = String.Concat(languages,
+                  "Common and Primordial\n");
+
+               // Air Genasi
+               stats.addDexterity(1);
+               abilities = String.Concat(abilities,
+                  "Unending Breath (PotA 229)\n");
+               abilities = String.Concat(abilities,
+                  "Mingle with the Wind (PotA 229)\n");
                break;
             case "Earth Genasi":
+               // Genasi
+               stats.addConstitution(2);
+               speed = 30;
+               languages = String.Concat(languages,
+                  "Common and Primordial\n");
+
+               // Earth Genasi
+               stats.addStrength(1);
+               abilities = String.Concat(abilities,
+                  "Earth Walk (PotA 229)\n");
+               abilities = String.Concat(abilities,
+                  "Merge with Stone (PotA 229)\n");
                break;
             case "Fire Genasi":
+               // Genasi
+               stats.addConstitution(2);
+               speed = 30;
+               languages = String.Concat(languages,
+                  "Common and Primordial\n");
+
+               // Fire Genasi
+               stats.addIntelligence(1);
+               abilities = String.Concat(abilities,
+                  "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Fire Resistance\n");
+               abilities = String.Concat(abilities,
+                  "Reach to the Blaze (PotA 229)\n");
                break;
             case "Water Genasi":
+               // Genasi
+               stats.addConstitution(2);
+               speed = 30;
+               languages = String.Concat(languages,
+                  "Common and Primordial\n");
+
+               // Water Genasi
+               stats.addWisdom(1);
+               abilities = String.Concat(abilities,
+                  "Acid Resistance\n");
+               abilities = String.Concat(abilities,
+                  "Amphibious (PotA 229)\n");
+               abilities = String.Concat(abilities,
+                  "Swim (30 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Call to the Wave (PotA 229)\n");
                break;
             case "Forest Gnome":
+               // Gnome
+               stats.addIntelligence(2);
+               speed = 25;
+               abilities = String.Concat(abilities,
+                  "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Gnome Cunning (PH 37)\n");
+               languages = String.Concat(languages,
+                  "Common and Gnomish\n");
+
+               // Forest Gnome
+               stats.addDexterity(1);
+               abilities = String.Concat(abilities,
+                  "Natural Illusionist (PH 37)\n");
+               abilities = String.Concat(abilities,
+                  "Speak with Small Beasts (PH 37)\n");
                break;
             case "Rock Gnome":
+               // Gnome
+               stats.addIntelligence(2);
+               speed = 25;
+               abilities = String.Concat(abilities,
+                  "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Gnome Cunning (PH 37)\n");
+               languages = String.Concat(languages,
+                  "Common and Gnomish\n");
+
+               // Rock Gnome
+               stats.addConstitution(1);
+               abilities = String.Concat(abilities,
+                  "Artificer's Lore (PH 37)\n");
+               abilities = String.Concat(abilities,
+                  "Tinker (PH 37)\n");
                break;
             case "Half-Elf":
+               Boolean fValid = false;
+               String sInput = null;
+               uint uiInput = 0;
+
+               stats.addCharisma(2);
+               while(!fValid)
+               {
+                  Console.Out.WriteLine("Choose two other ability scores to increase.");
+                  Console.Out.WriteLine("1.  Strength and Dexterity");
+                  Console.Out.WriteLine("2.  Strength and Constitution");
+                  Console.Out.WriteLine("3.  Strength and Intelligence");
+                  Console.Out.WriteLine("4.  Strength and Wisdom");
+                  Console.Out.WriteLine("5.  Dexterity and Constitution");
+                  Console.Out.WriteLine("6.  Dexterity and Intelligence");
+                  Console.Out.WriteLine("7.  Dexterity and Wisdom");
+                  Console.Out.WriteLine("8.  Constitution and Intelligence");
+                  Console.Out.WriteLine("9.  Constitution and Wisdom");
+                  Console.Out.WriteLine("10. Intelligence and Wisdom");
+
+                  sInput = Console.ReadLine();
+
+                  if (UInt32.TryParse(sInput, out uiInput))
+                  {
+                     if((uiInput >= 1) && (uiInput <= 10))
+                     {
+                        fValid = true;
+                        switch(uiInput)
+                        {
+                           case 1:
+                              stats.addStrength(1);
+                              stats.addDexterity(1);
+                              break;
+                           case 2:
+                              stats.addStrength(1);
+                              stats.addConstitution(1);
+                              break;
+                           case 3:
+                              stats.addStrength(1);
+                              stats.addIntelligence(1);
+                              break;
+                           case 4:
+                              stats.addStrength(1);
+                              stats.addWisdom(1);
+                              break;
+                           case 5:
+                              stats.addDexterity(1);
+                              stats.addConstitution(1);
+                              break;
+                           case 6:
+                              stats.addDexterity(1);
+                              stats.addIntelligence(1);
+                              break;
+                           case 7:
+                              stats.addDexterity(1);
+                              stats.addWisdom(1);
+                              break;
+                           case 8:
+                              stats.addConstitution(1);
+                              stats.addIntelligence(1);
+                              break;
+                           case 9:
+                              stats.addConstitution(1);
+                              stats.addWisdom(1);
+                              break;
+                           case 10:
+                              stats.addWisdom(1);
+                              stats.addIntelligence(1);
+                              break;
+                           default:
+                              fValid = false;
+                              break;
+                        }
+                     }
+                  }
+               }
+
+               speed = 30;
+               abilities = String.Concat(abilities,
+                  "Darkvision (60 ft)\n");
+               abilities = String.Concat(abilities,
+                  "Fey Ancestry (PH 39)\n");
+               proficiencies = String.Concat(proficiencies,
+                  "Skill Versatility: Two skills of your choice\n");
+               languages = String.Concat(languages,
+                  "Common, Elvish, and one extra language of your choice.\n");
                break;
             case "Half-Orc":
                break;
             case "Lightfoot Halfling":
                break;
-            case "Stout Gnome":
+            case "Stout Halfling":
                break;
             case "Human":
                break;
