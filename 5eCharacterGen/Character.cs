@@ -265,90 +265,68 @@ namespace _5eCharacterGen
       public void SetBackground()
       {
          // Data Dictionary
-         Boolean fValid = false;
-         string sInput  = null;
          uint uiInput   = 0;
 
-         // Main loop
-         while (!fValid)
+         uiInput = getValidUINT(
+            "\nChoose one of the following Backgrounds:n"   +
+            "1.  Acolyte\n"                                 +
+            "2.  Charlatan\n"                               +
+            "3.  Criminal\n"                                +
+            "4.  Entertainer\n"                             +
+            "5.  Folk Hero\n"                               +
+            "6.  Guild Artisan\n"                           +
+            "7.  Hermit\n"                                  +
+            "8.  Noble\n"                                   +
+            "9.  Outlander\n"                               +
+            "10. Sage\n"                                    +
+            "11. Sailor\n"                                  +
+            "12. Soldier\n"                                 +
+            "13. Urchin", 1, 13);
+
+         switch (uiInput)
          {
-            Console.WriteLine("\nChoose one of the following Backgrounds: ");
-            Console.WriteLine("1.  Acolyte");
-            Console.WriteLine("2.  Charlatan");
-            Console.WriteLine("3.  Criminal");
-            Console.WriteLine("4.  Entertainer");
-            Console.WriteLine("5.  Folk Hero");
-            Console.WriteLine("6.  Guild Artisan");
-            Console.WriteLine("7.  Hermit");
-            Console.WriteLine("8.  Noble");
-            Console.WriteLine("9.  Outlander");
-            Console.WriteLine("10. Sage");
-            Console.WriteLine("11. Sailor");
-            Console.WriteLine("12. Soldier");
-            Console.WriteLine("13. Urchin");
-
-            sInput = Console.ReadLine();
-
-            if (UInt32.TryParse(sInput, out uiInput))
-            {
-               if ((uiInput >= 1) && (uiInput <= 13))
-               {
-                  fValid = true;
-                  switch (uiInput)
-                  {
-                     case 1:
-                        this.Background = "Acolyte";
-                        break;
-                     case 2:
-                        this.Background = "Charlatan";
-                        break;
-                     case 3:
-                        this.Background = "Criminal";
-                        break;
-                     case 4:
-                        this.Background = "Entertainer";
-                        break;
-                     case 5:
-                        this.Background = "Folk Hero";
-                        break;
-                     case 6:
-                        this.Background = "Guild Artisan";
-                        break;
-                     case 7:
-                        this.Background = "Hermit";
-                        break;
-                     case 8:
-                        this.Background = "Noble";
-                        break;
-                     case 9:
-                        this.Background = "Outlander";
-                        break;
-                     case 10:
-                        this.Background = "Sage";
-                        break;
-                     case 11:
-                        this.Background = "Sailor";
-                        break;
-                     case 12:
-                        this.Background = "Soldier";
-                        break;
-                     case 13:
-                        this.Background = "Urchin";
-                        break;
-                     default:
-                        fValid = false;
-                        break;
-                  }
-               }
-               else
-               {
-                  Console.WriteLine("Error! Invalid input, please enter a number in the range [1,13]");
-               }
-            }
-            else
-            {
-               Console.WriteLine("Error! Invalid input, please enter a number in the range [1,13]");
-            }
+            case 1:
+               this.Background = "Acolyte";
+               break;
+            case 2:
+               this.Background = "Charlatan";
+               break;
+            case 3:
+               this.Background = "Criminal";
+               break;
+            case 4:
+               this.Background = "Entertainer";
+               break;
+            case 5:
+               this.Background = "Folk Hero";
+               break;
+            case 6:
+               this.Background = "Guild Artisan";
+               break;
+            case 7:
+               this.Background = "Hermit";
+               break;
+            case 8:
+               this.Background = "Noble";
+               break;
+            case 9:
+               this.Background = "Outlander";
+               break;
+            case 10:
+               this.Background = "Sage";
+               break;
+            case 11:
+               this.Background = "Sailor";
+               break;
+            case 12:
+               this.Background = "Soldier";
+               break;
+            case 13:
+               this.Background = "Urchin";
+               break;
+            default:
+               this.Background = "ERROR";
+               break;
          }
       }
 
