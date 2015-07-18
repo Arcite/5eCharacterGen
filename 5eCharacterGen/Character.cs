@@ -201,86 +201,64 @@ namespace _5eCharacterGen
       public void SetClass()
       {
          // Data Dictionary
-         Boolean fValid = false;
-         string sInput  = null;
          uint uiInput   = 0;
 
-         // Main loop
-         while (!fValid)
+         uiInput = getValidUINT(
+            "\nChoose one of the following classes:\n" +
+            "1.  Barbarian\n" +
+            "2.  Bard\n" +
+            "3.  Cleric\n" +
+            "4.  Druid\n" +
+            "5.  Fighter\n" +
+            "6.  Monk\n" +
+            "7.  Paladin\n" +
+            "8.  Ranger\n" +
+            "9.  Rogue\n" +
+            "10. Sorcerer\n" +
+            "11. Warlock\n" +
+            "12. Wizard", 1, 12);
+
+         switch (uiInput)
          {
-            Console.WriteLine("\nChoose one of the following classes: ");
-            Console.WriteLine("1.  Barbarian");
-            Console.WriteLine("2.  Bard");
-            Console.WriteLine("3.  Cleric");
-            Console.WriteLine("4.  Druid");
-            Console.WriteLine("5.  Fighter");
-            Console.WriteLine("6.  Monk");
-            Console.WriteLine("7.  Paladin");
-            Console.WriteLine("8.  Ranger");
-            Console.WriteLine("9.  Rogue");
-            Console.WriteLine("10. Sorcerer");
-            Console.WriteLine("11. Warlock");
-            Console.WriteLine("12. Wizard");
-
-            sInput = Console.ReadLine();
-
-            if (UInt32.TryParse(sInput, out uiInput))
-            {
-               if ((uiInput >= 1) && (uiInput <= 12))
-               {
-                  fValid = true;
-                  switch (uiInput)
-                  {
-                     case 1:
-                        this.Class =  "Barbarian";
-                        break;
-                     case 2:
-                        this.Class = "Bard";
-                        break;
-                     case 3:
-                        this.Class = "Cleric";
-                        break;
-                     case 4:
-                        this.Class = "Druid";
-                        break;
-                     case 5:
-                        this.Class = "Fighter";
-                        break;
-                     case 6:
-                        this.Class = "Monk";
-                        break;
-                     case 7:
-                        this.Class = "Paladin";
-                        break;
-                     case 8:
-                        this.Class = "Ranger";
-                        break;
-                     case 9:
-                        this.Class = "Rogue";
-                        break;
-                     case 10:
-                        this.Class = "Sorcerer";
-                        break;
-                     case 11:
-                        this.Class = "Warlock";
-                        break;
-                     case 12:
-                        this.Class = "Wizard";
-                        break;
-                     default:
-                        fValid = false;
-                        break;
-                  }
-               }
-               else
-               {
-                  Console.WriteLine("Error! Invalid input, please enter a number in the range [1,12]");
-               }
-            }
-            else
-            {
-               Console.WriteLine("Error! Invalid input, please enter a number in the range [1,12]");
-            }
+            case 1:
+               this.Class = "Barbarian";
+               break;
+            case 2:
+               this.Class = "Bard";
+               break;
+            case 3:
+               this.Class = "Cleric";
+               break;
+            case 4:
+               this.Class = "Druid";
+               break;
+            case 5:
+               this.Class = "Fighter";
+               break;
+            case 6:
+               this.Class = "Monk";
+               break;
+            case 7:
+               this.Class = "Paladin";
+               break;
+            case 8:
+               this.Class = "Ranger";
+               break;
+            case 9:
+               this.Class = "Rogue";
+               break;
+            case 10:
+               this.Class = "Sorcerer";
+               break;
+            case 11:
+               this.Class = "Warlock";
+               break;
+            case 12:
+               this.Class = "Wizard";
+               break;
+            default:
+               this.Class = "ERROR";
+               break;
          }
       }
 
