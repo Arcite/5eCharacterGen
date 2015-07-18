@@ -328,6 +328,8 @@ namespace _5eCharacterGen
                this.Background = "ERROR";
                break;
          }
+
+         addBackground();
       }
 
       public void SetScores()
@@ -660,6 +662,91 @@ namespace _5eCharacterGen
          }
 
          stats.SetMods();
+      }
+
+      private void addBackground()
+      {
+         switch(Background)
+         {
+            case "Acolyte":
+               addProficiency("Insight\n");
+               addProficiency("Religion\n");
+               addLanguage("Two of your choice\n");
+               break;
+            case "Charlatan":
+               addProficiency("Deception\n");
+               addProficiency("Sleight of Hand\n");
+               addProficiency("Disguise kit\n");
+               addProficiency("Forgery kit\n");
+               break;
+            case "Criminal":
+               addProficiency("Deception\n");
+               addProficiency("Stealth\n");
+               addProficiency("One type of gaming set\n");
+               addProficiency("Thieve's tools\n");
+               break;
+            case "Entertainer":
+               addProficiency("Acrobatics\n");
+               addProficiency("Performance\n");
+               addProficiency("Disguise Kit\n");
+               addProficiency("One type of musical instrument\n");
+               break;
+            case "Folk Hero":
+               addProficiency("Animal Handling\n");
+               addProficiency("Survival\n");
+               addProficiency("One type of artisan's tools\n");
+               addProficiency("Vehicles (land)\n");
+               break;
+            case "Guild Artisan":
+               addProficiency("Insight\n");
+               addProficiency("Persuasion\n");
+               addProficiency("One type of artisan's tools\n");
+               addLanguage("One of your choice\n");
+               break;
+            case "Hermit":
+               addProficiency("Medicine\n");
+               addProficiency("Religion\n");
+               addProficiency("Herbalism kit\n");
+               addLanguage("One of your choice\n");
+               break;
+            case "Noble":
+               addProficiency("History\n");
+               addProficiency("Persuasion\n");
+               addProficiency("One type of gaming set\n");
+               addLanguage("One of your choice\n");
+               break;
+            case "Outlander":
+               addProficiency("Athletics\n");
+               addProficiency("Survival\n");
+               addProficiency("One type of musical instrument\n");
+               addLanguage("One of your choice\n");
+               break;
+            case "Sage":
+               addProficiency("Arcana\n");
+               addProficiency("History\n");
+               addLanguage("Two of your choice\n");
+               break;
+            case "Sailor":
+               addProficiency("Athletics\n");
+               addProficiency("Perception\n");
+               addProficiency("Navigator's tools\n");
+               addProficiency("Vehicles (Water)\n");
+               break;
+            case "Soldier":
+               addProficiency("Athletics\n");
+               addProficiency("Intimidation\n");
+               addProficiency("One type of gaming set\n");
+               addProficiency("Vehicles (land)\n");
+               break;
+            case "Urchin":
+               addProficiency("Sleight of Hande\n");
+               addProficiency("Stealth\n");
+               addProficiency("Disguise kit\n");
+               addProficiency("Thieve's tools\n");
+               break;
+            default:
+               break;
+         }
       }
 
       private void addAbility(String ability)
