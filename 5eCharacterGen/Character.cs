@@ -559,12 +559,9 @@ namespace _5eCharacterGen
                stats.addStrength(2);
                stats.addCharisma(1);
                speed = 30;
-               abilities = String.Concat(abilities,
-                  "Draconic Ancestry (PH 34)\n");
-               abilities = String.Concat(abilities,
-                  "Breath Weapon (PH 34)\n");
-               abilities = String.Concat(abilities,
-                  "Damage Resistance (PH 34)\n");
+               addAbility("Draconic Ancestry (PH 34)\n");
+               addAbility("Breath Weapon (PH 34)\n");
+               addAbility("Damage Resistance (PH 34)\n");
                languages = String.Concat(languages,
                   "Common and Draconis\n");
                break;
@@ -572,37 +569,35 @@ namespace _5eCharacterGen
                // Dwarf
                stats.addConstitution(2);
                speed = 25;
-               abilities = String.Concat(abilities, "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities, "Dwarven Resiliencen");
+               addAbility("Darkvision (60 ft)\n");
+               addAbility("Dwarven Resiliencen");
                proficiencies = String.Concat(proficiencies,
-                  "Dwarven Combat Training: Battleaxe, handaxe, " +
-                  "light hammer, and warhammer.\n");
+                  "Dwarven Combat Training (PH 20)\n");
                proficiencies = String.Concat(proficiencies,
-                  "Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.\n");
-               languages = String.Concat(languages, "Dwarf: Common and Dwarvish\n");
+                  "Tool Proficiency (PH 20)\n");
+               languages = String.Concat(languages, "Common and Dwarvish\n");
                
                // Hill Dwarf
                stats.addWisdom(1);
                proficiencies = String.Concat(proficiencies,
-                  "Dwarven Toughness\n");
+                  "Dwarven Toughness (PH 20)\n");
                break;
             case "Mountain Dwarf":
                // Dwarf
                stats.addConstitution(2);
                speed = 25;
-               abilities = String.Concat(abilities, "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities, "Dwarven Resilience\n");
+               addAbility("Darkvision (60 ft)\n");
+               addAbility("Dwarven Resiliencen");
                proficiencies = String.Concat(proficiencies,
-                  "Dwarven Combat Training : Battleaxe, handaxe, " +
-                  "light hammer, and warhammer.\n");
+                  "Dwarven Combat Training (PH 20)\n");
                proficiencies = String.Concat(proficiencies,
-                  "Dwarf: Choose one: Smith's tools, brewer's supplies, or mason's tools.\n");
-               languages = String.Concat(languages, "Dwarf: Common and Dwarvish");
+                  "Tool Proficiency (PH 20)\n");
+               languages = String.Concat(languages, "Common and Dwarvish\n");
 
                // Mountain Dwarf
                stats.addStrength(2);
                proficiencies = String.Concat(proficiencies,
-                  "Dwarven Armor Training: light and medium armor.\n");
+                  "Dwarven Armor Training (PH 20)\n");
                break;
             case "High Elf":
                // Elf
@@ -612,10 +607,8 @@ namespace _5eCharacterGen
                   "Darkvision (60 ft)\n");
                proficiencies = String.Concat(proficiencies,
                   "Keen Senses: Perception\n");
-               abilities = String.Concat(abilities,
-                  "Fey Ancestry\n");
-               abilities = String.Concat(abilities,
-                  "Trance\n");
+               addAbility("Fey Ancestry\n");
+               addAbility("Trance\n");
                languages = String.Concat(languages, "Elf: Common and Elvish\n");
 
                // High Elf
@@ -623,7 +616,7 @@ namespace _5eCharacterGen
                proficiencies = String.Concat(proficiencies, 
                   "Elf Weapon Training: Longsword, " +
                   "shortsword, shortbow, and longbow.\n");
-               abilities = String.Concat(abilities, "Cantrip\n");
+               addAbility("Cantrip\n");
                languages = String.Concat(languages, "Extra Language\n");
                break;
             case "Wood Elf":
@@ -633,10 +626,8 @@ namespace _5eCharacterGen
                   "Darkvision (60 ft)\n");
                proficiencies = String.Concat(proficiencies,
                   "Keen Senses: Perception\n");
-               abilities = String.Concat(abilities,
-                  "Fey Ancestry\n");
-               abilities = String.Concat(abilities,
-                  "Trance\n");
+               addAbility("Fey Ancestry\n");
+               addAbility("Trance\n");
                languages = String.Concat(languages, "Elf: Common and Elvish\n");
 
                // Wood Elf
@@ -645,8 +636,7 @@ namespace _5eCharacterGen
                   "Elf Weapon Training: Longsword, " +
                   "shortsword, shortbow, and longbow.\n");
                speed = 35;
-               abilities = String.Concat(abilities,
-                  "Mask of the Wild.\n");
+               addAbility("Mask of the Wild.\n");
                break;
             case "Dark Elf (Drow)":
                // Elf
@@ -654,20 +644,16 @@ namespace _5eCharacterGen
                speed = 30;
                proficiencies = String.Concat(proficiencies,
                   "Keen Senses: Perception\n");
-               abilities = String.Concat(abilities,
-                  "Fey Ancestry\n");
-               abilities = String.Concat(abilities,
-                  "Trance\n");
+               addAbility("Fey Ancestry\n");
+               addAbility("Trance\n");
                languages = String.Concat(languages, "Elf: Common and Elvish\n");
 
                // Dark Elf (Drow)
                stats.addCharisma(1);
                proficiencies = String.Concat(proficiencies,
                   "Superior Darkvision (120 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Sunlight Sensitivity\n");
-               abilities = String.Concat(abilities,
-                  "Drow Magic\n");
+               addAbility("Sunlight Sensitivity\n");
+               addAbility("Drow Magic\n");
                proficiencies = String.Concat(proficiencies,
                   "Drow Weapon Training: Rapiers, shortswords, and hand crossbows.\n");
                break;
@@ -680,10 +666,8 @@ namespace _5eCharacterGen
 
                // Air Genasi
                stats.addDexterity(1);
-               abilities = String.Concat(abilities,
-                  "Unending Breath (PotA 229)\n");
-               abilities = String.Concat(abilities,
-                  "Mingle with the Wind (PotA 229)\n");
+               addAbility("Unending Breath (PotA 229)\n");
+               addAbility("Mingle with the Wind (PotA 229)\n");
                break;
             case "Earth Genasi":
                // Genasi
@@ -694,10 +678,8 @@ namespace _5eCharacterGen
 
                // Earth Genasi
                stats.addStrength(1);
-               abilities = String.Concat(abilities,
-                  "Earth Walk (PotA 229)\n");
-               abilities = String.Concat(abilities,
-                  "Merge with Stone (PotA 229)\n");
+               addAbility("Earth Walk (PotA 229)\n");
+               addAbility("Merge with Stone (PotA 229)\n");
                break;
             case "Fire Genasi":
                // Genasi
@@ -710,10 +692,8 @@ namespace _5eCharacterGen
                stats.addIntelligence(1);
                abilities = String.Concat(abilities,
                   "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Fire Resistance\n");
-               abilities = String.Concat(abilities,
-                  "Reach to the Blaze (PotA 229)\n");
+               addAbility("Fire Resistance\n");
+               addAbility("Reach to the Blaze (PotA 229)\n");
                break;
             case "Water Genasi":
                // Genasi
@@ -724,50 +704,38 @@ namespace _5eCharacterGen
 
                // Water Genasi
                stats.addWisdom(1);
-               abilities = String.Concat(abilities,
-                  "Acid Resistance\n");
-               abilities = String.Concat(abilities,
-                  "Amphibious (PotA 229)\n");
-               abilities = String.Concat(abilities,
-                  "Swim (30 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Call to the Wave (PotA 229)\n");
+               addAbility("Acid Resistance\n");
+               addAbility("Amphibious (PotA 229)\n");
+               addAbility("Swim (30 ft)\n");
+               addAbility("Call to the Wave (PotA 229)\n");
                break;
             case "Forest Gnome":
                // Gnome
                stats.addIntelligence(2);
                speed = 25;
-               abilities = String.Concat(abilities,
-                  "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Gnome Cunning (PH 37)\n");
+               addAbility("Darkvision (60 ft)\n");
+               addAbility("Gnome Cunning (PH 37)\n");
                languages = String.Concat(languages,
                   "Common and Gnomish\n");
 
                // Forest Gnome
                stats.addDexterity(1);
-               abilities = String.Concat(abilities,
-                  "Natural Illusionist (PH 37)\n");
-               abilities = String.Concat(abilities,
-                  "Speak with Small Beasts (PH 37)\n");
+               addAbility("Natural Illusionist (PH 37)\n");
+               addAbility("Speak with Small Beasts (PH 37)\n");
                break;
             case "Rock Gnome":
                // Gnome
                stats.addIntelligence(2);
                speed = 25;
-               abilities = String.Concat(abilities,
-                  "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Gnome Cunning (PH 37)\n");
+               addAbility("Darkvision (60 ft)\n");
+               addAbility("Gnome Cunning (PH 37)\n");
                languages = String.Concat(languages,
                   "Common and Gnomish\n");
 
                // Rock Gnome
                stats.addConstitution(1);
-               abilities = String.Concat(abilities,
-                  "Artificer's Lore (PH 37)\n");
-               abilities = String.Concat(abilities,
-                  "Tinker (PH 37)\n");
+               addAbility("Artificer's Lore (PH 37)\n");
+               addAbility("Tinker (PH 37)\n");
                break;
             case "Half-Elf":
                Boolean fValid = false;
@@ -847,10 +815,8 @@ namespace _5eCharacterGen
                }
 
                speed = 30;
-               abilities = String.Concat(abilities,
-                  "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Fey Ancestry (PH 39)\n");
+               addAbility("Darkvision (60 ft)\n");
+               addAbility("Fey Ancestry (PH 39)\n");
                proficiencies = String.Concat(proficiencies,
                   "Skill Versatility: Two skills of your choice\n");
                languages = String.Concat(languages,
@@ -860,14 +826,11 @@ namespace _5eCharacterGen
                stats.addStrength(2);
                stats.addConstitution(1);
                speed = 30;
-               abilities = String.Concat(abilities,
-                  "Darkvision (60 ft)\n");
+               addAbility("Darkvision (60 ft)\n");
                proficiencies = String.Concat(proficiencies,
                   "Intimidation (Menacing)\n");
-               abilities = String.Concat(abilities,
-                  "Relentless Endurance (PH 41)\n");
-               abilities = String.Concat(abilities,
-                  "Savage Attacks (PH 41)\n");
+               addAbility("Relentless Endurance (PH 41)\n");
+               addAbility("Savage Attacks (PH 41)\n");
                languages = String.Concat(languages,
                   "Common and Ord\n");
                break;
@@ -875,30 +838,23 @@ namespace _5eCharacterGen
                // Halfling
                stats.addDexterity(2);
                speed = 25;
-               abilities = String.Concat(abilities,
-                  "Lucky (PH 28)\n");
-               abilities = String.Concat(abilities,
-                  "Brave (PH 28)\n");
-               abilities = String.Concat(abilities,
-                  "Halfling Nimbleness (PH 28)\n");
+               addAbility("Lucky (PH 28)\n");
+               addAbility("Brave (PH 28)\n");
+               addAbility("Halfling Nimbleness (PH 28)\n");
                languages = String.Concat(languages,
                   "Common and Halfling\n");
 
                // Lightfood
                stats.addCharisma(1);
-               abilities = String.Concat(abilities,
-                  "Naturally Stealthy (PH 28)\n");
+               addAbility("Naturally Stealthy (PH 28)\n");
                break;
             case "Stout Halfling":
                // Halfling
                stats.addDexterity(2);
                speed = 25;
-               abilities = String.Concat(abilities,
-                  "Lucky (PH 28)\n");
-               abilities = String.Concat(abilities,
-                  "Brave (PH 28)\n");
-               abilities = String.Concat(abilities,
-                  "Halfling Nimbleness (PH 28)\n");
+               addAbility("Lucky (PH 28)\n");
+               addAbility("Brave (PH 28)\n");
+               addAbility("Halfling Nimbleness (PH 28)\n");
                languages = String.Concat(languages,
                   "Common and Halfling\n");
 
@@ -922,18 +878,20 @@ namespace _5eCharacterGen
                stats.addIntelligence(1);
                stats.addCharisma(2);
                speed = 30;
-               abilities = String.Concat(abilities,
-                  "Darkvision (60 ft)\n");
-               abilities = String.Concat(abilities,
-                  "Hellish Resistance (PH 43)\n");
-               abilities = String.Concat(abilities,
-                  "Infernal Legacy (PH 43)\n");
+               addAbility("Darkvision (60 ft)\n");
+               addAbility("Hellish Resistance (PH 43)\n");
+               addAbility("Infernal Legacy (PH 43)\n");
                languages = String.Concat(languages,
                   "Common and Infernal\n");
                break;
          }
 
          stats.SetMods();
+      }
+
+      private void addAbility(String ability)
+      {
+         abilities = String.Concat(abilities, ability);
       }
    }
 
