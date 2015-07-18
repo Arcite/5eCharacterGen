@@ -18,52 +18,66 @@ namespace _5eCharacterGen
       private string abilities;     // PC's abilities
       private string proficiencies; // PC's proficiencies
       private string languages;     // PC's languages
+      private string equipment;     // PC's equipment          (PH Chapter 5)
+      private uint health;          // PC's health
 
       public Character()
          // Default constructor, sets all fields to a garbage value
       {
-         Name        = "N/A";
-         this.Race = "N/A";
-         this.Class = "N/A";
-         this.Background = "N/A";
-         this.age = 0;
-         this.speed = 30;
-         this.abilities = "";
-         this.proficiencies = "";
-         this.languages = "";
+         this.Name            = "";
+         this.Race            = "";
+         this.Class           = "";
+         this.Background      = "";
+         this.age             = 0;           
+         this.speed           = 30;
+         this.abilities       = "";
+         this.proficiencies   = "";
+         this.languages       = "";
+         this.equipment       = "";
+         this.health          = 0;
       }
 
       public Character(string name)
          // Constructor that sets just the name, and all other fields to garbage values
       {
          this.Name            = name;
-         this.Race            = "N/A";
-         this.Class           = "N/A";
-         this.Background      = "N/A";
+         this.Race            = "";
+         this.Class           = "";
+         this.Background      = "";
          this.age             = 0;           
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
          this.languages       = "";
+         this.equipment       = "";
+         this.health          = 0;
       }
 
       public Character(string name, string race, string charClass, string background)
          // Constructor that sets all values
       {
-         this.Name         = name;
-         this.Race         = race;
-         this.Class        = charClass;
-         this.Background   = background;
+         this.Name            = name;
+         this.Race            = race;
+         this.Class           = charClass;
+         this.Background      = background;
+         this.age             = 0;
+         this.speed           = 30;
+         this.abilities       = "";
+         this.proficiencies   = "";
+         this.languages       = "";
+         this.equipment       = "";
+         this.health          = 0;
       }
 
       public void Print()
       {
-         System.Console.WriteLine("{0} {1} the {2} {3}", Background, Name, Race, Class);
+         Console.Out.WriteLine("\n{0} {1} the {2} {3}", Background, Name, Race, Class);
          stats.Print();
-         System.Console.WriteLine("\nSpeed: {0}", speed);
-         System.Console.WriteLine("Abilities:\n{0}", abilities);
-         System.Console.WriteLine("Proficiencies:\n{0}", proficiencies);
-         System.Console.WriteLine("Languages:\n{0}", languages);
+         Console.Out.WriteLine("\nSpeed: {0}", speed);
+         Console.Out.WriteLine("\nAbilities:\n{0}", abilities);
+         Console.Out.WriteLine("Proficiencies:\n{0}", proficiencies);
+         Console.Out.WriteLine("Languages:\n{0}", languages);
+         Console.Out.WriteLine("Equipment:\n{0}", equipment);
       }
 
       public void SetName()
@@ -268,7 +282,7 @@ namespace _5eCharacterGen
          uint uiInput   = 0;
 
          uiInput = getValidUINT(
-            "\nChoose one of the following Backgrounds:n"   +
+            "\nChoose one of the following Backgrounds:\n"   +
             "1.  Acolyte\n"                                 +
             "2.  Charlatan\n"                               +
             "3.  Criminal\n"                                +
@@ -330,6 +344,7 @@ namespace _5eCharacterGen
          }
 
          addBackground();
+         addClass();
       }
 
       public void SetScores()
@@ -767,6 +782,12 @@ namespace _5eCharacterGen
          languages = String.Concat(languages, language);
       }
 
+      private void addEquipment(String equipment)
+      {
+         this.equipment = String.Concat(this.equipment, "\t");
+         this.equipment = String.Concat(this.equipment, equipment);
+      }
+
       private uint getValidUINT(String prompt, uint lowerBound, uint upperBound)
       {
          Boolean fValid = false;    // flag for validity of user input
@@ -794,6 +815,127 @@ namespace _5eCharacterGen
          }
 
          return uiInput;
+      }
+
+      private void addClass()
+      {
+         uint uiInput = 0;
+
+         switch(Class)
+         {
+            case "Barbarian":
+               health = (uint)(12 + stats.GetConMod());
+               addProficiency("Light armor\n");
+               addProficiency("Medium armor\n");
+               addProficiency("Shields\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Martial weapons\n");
+               addProficiency("Strength saving throws\n");
+               addProficiency("Constitution saving throws\n");
+               addProficiency("Choose two from Animal Handling, " +
+                  "Athletics, Intimidation, Nature, Perception, and Survival.\n");
+               
+               uiInput = getValidUINT("\nChoose one of following:\n" +
+                  "1. Greataxe\n2. Any martial weapon\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Greataxe\n");
+               }
+               else
+               {
+                  addEquipment("Any Martial weapon\n");
+               }
+
+               uiInput = getValidUINT("\nChoose one of the following:\n" +
+                  "1. Two handaxes\n2. Any simple weapon\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Two handaxes\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               addEquipment("An explorer's pack\n");
+               addEquipment("Javelin x4\n");
+               break;
+            case "Bard":
+               addProficiency("Leather armor\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Hand crossbows\n");
+               addProficiency("Longswords\n");
+               addProficiency("Rapiers\n");
+               addProficiency("Shortswords\n");
+               addProficiency("Three musical instruments of your choice\n");
+               addProficiency("Dexterity saving throws\n");
+               addProficiency("Charisma saving throws\n");
+               addProficiency("Any three skills\n");
+
+               health = (uint)(8 + stats.GetConMod());
+               uiInput = getValidUINT("\nChoose one of following:\n" +
+                  "1. Rapier\n2. Longsword\n3. Any simple weapon\n", 1, 3);
+               if(uiInput == 1)
+               {
+                  addEquipment("Rapier\n");
+               }
+               else if(uiInput == 2)
+               {
+                  addEquipment("Longsword\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               uiInput = getValidUINT("\nChoose one of the following:\n" +
+                  "1. Diplomat's pack\n2. Entertainer's pack\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Diplomat's pack\n");
+               }
+               else
+               {
+                  addEquipment("Entertainer's pack\n");
+               }
+
+               uiInput = getValidUINT("\nChoose one of the following:\n" +
+                  "1. Lute\n2. Any other musical instrument\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Lute\n");
+               }
+               else
+               {
+                  addEquipment("Any non-lute musical instrument\n");
+               }
+
+               addEquipment("Leaather armor\n");
+               addEquipment("Dagger\n");
+               break;
+            case "Cleric":
+               break;
+            case "Druid":
+               break;
+            case "Fighter":
+               break;
+            case "Monk":
+               break;
+            case "Paladin":
+               break;
+            case "Ranger":
+               break;
+            case "Rogue":
+               break;
+            case "Sorcerer":
+               break;
+            case "Warlock":
+               break;
+            case "Wizard":
+               break;
+            default:
+               break;
+         }
       }
    }
 
@@ -1050,6 +1192,12 @@ namespace _5eCharacterGen
          SetIntMod();
          SetWisMod();
          SetChrMod();
+      }
+
+      public int GetConMod()
+      {
+         SetConMod();
+         return conMod;
       }
 
       private void SetStrMod()
@@ -1552,5 +1700,26 @@ namespace _5eCharacterGen
       {
          this.Charisma += modifier;
       }
+   }
+
+   class Money
+   {
+      public uint Platinum;
+      public uint Gold;
+      public uint Electrum;
+      public uint Silver;
+      public uint Copper;
+
+      public Money()
+      {
+         this.Platinum  = 0;
+         this.Gold      = 0;
+         this.Electrum  = 0;
+         this.Silver    = 0;
+         this.Copper    = 0;
+      }
+
+      // TODO: Buy function
+      // TODO: Sell function
    }
 }
