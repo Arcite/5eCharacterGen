@@ -1034,6 +1034,67 @@ namespace _5eCharacterGen
                addEquipment("Druidic focus\n");
                break;
             case "Fighter":
+               health = (uint)(10 + stats.GetConMod());
+               addProficiency("All armor\n");
+               addProficiency("Shields\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Martial weapons\n");
+               addProficiency("Strength saving throws\n");
+               addProficiency("Constitution saving throws\n");
+               addProficiency("Choose two from:\n\t\tAcrobatics\n\t\t" +
+                  "Animal Handling\n\t\tAthletics\n\t\tHistory\n\t\tInsight\n\t\t" +
+                  "Intimidation\n\t\tPerception\n\t\tSurvival\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Chain mail\n2. Leather armor, longbow, and 20 arrows\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Chain mail\n");
+               }
+               else
+               {
+                  addEquipment("Leather armor\n");
+                  addEquipment("Longbow\n");
+                  addEquipment("Arrows x20\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Martial weapon and a shield\n2. Two martial weapons\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Any martial weapon\n");
+                  addEquipment("Shield\n");
+               }
+               else
+               {
+                  addEquipment("Any martial weapon\n");
+                  addEquipment("Any martial weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Light crossbow and 20 bolts\n2. Two handaxes\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Light crossbow\n");
+                  addEquipment("Crossbow bolt x20\n");
+               }
+               else
+               {
+                  addEquipment("Handaxe\n");
+                  addEquipment("Handaxe\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Dungeoneer's pack\n2. Explorer's pack\n", 1, 2);
+
+               if(uiInput == 1)
+               {
+                  addEquipment("Dungeoneer's pack\n");
+               }
+               else
+               {
+                  addEquipment("Explorer's pack\n");
+               }
                break;
             case "Monk":
                break;
