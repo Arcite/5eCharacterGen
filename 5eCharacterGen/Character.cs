@@ -1296,6 +1296,55 @@ namespace _5eCharacterGen
                addEquipment("Dagger\n");
                break;
             case "Warlock":
+               health = (uint)(8 + stats.GetConMod());
+               addProficiency("Light armor\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Wisdom saving throws\n");
+               addProficiency("Charisma saving throws\n");
+               addProficiency("Choose two skills from:\n\t\t" +
+                  "Arcana\n\t\tDeception\n\t\tHistory\n\t\tIntimidation\n\t\t" +
+                  "Investigation\n\t\tNature\n\t\tReligion\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Light crossbow and 20 bolts\n2. Any simple weapon\n", 1, 2);
+
+               if(uiInput == 1)
+               {
+                  addEquipment("Light crossbow\n");
+                  addEquipment("Crossbow bolt x20\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Component pouch\n2. Arcane focus\n", 1, 2);
+
+               if(uiInput == 1)
+               {
+                  addEquipment("Component pouch\n");
+               }
+               else
+               {
+                  addEquipment("Arcane focus\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Scholar's pack\n 2. Dungeoneer's pack\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Scholar's pack\n");
+               }
+               else
+               {
+                  addEquipment("Dungeoneer's pack\n");
+               }
+
+               addEquipment("Leather armor\n");
+               addEquipment("Any simple weapon\n");
+               addEquipment("Dagger\n");
+               addEquipment("Dagger\n");
                break;
             case "Wizard":
                break;
