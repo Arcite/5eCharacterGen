@@ -1257,6 +1257,43 @@ namespace _5eCharacterGen
                addEquipment("Thieves' tools\n");
                break;
             case "Sorcerer":
+               health = (uint)(6 + stats.GetConMod());
+               addProficiency("Daggers\n");
+               addProficiency("Darts\n");
+               addProficiency("Slings\n");
+               addProficiency("Quarterstaffs\n");
+               addProficiency("Light crossbows\n");
+               addProficiency("Constitution saving throws\n");
+               addProficiency("Charisma saving throws\n");
+               addProficiency("Choose two from:\n\t\tArcana\n\t\t" +
+                  "Deception\n\t\tInsight\n\t\tIntimidation\n\t\t" +
+                  "Persuasion\n\t\tReligion\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Light crossbow and 20 bolts\n2. Any simple weapon\n", 1, 2);
+               if (uiInput == 1)
+               {
+                  addEquipment("Light crossbow\n");
+                  addEquipment("Crossbow bolt x20\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Component pouch\n2. Arcane focus\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Component pouch\n");
+               }
+               else
+               {
+                  addEquipment("Arcane focus\n");
+               }
+
+               addEquipment("Dagger\n");
+               addEquipment("Dagger\n");
                break;
             case "Warlock":
                break;
