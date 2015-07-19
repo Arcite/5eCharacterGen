@@ -1198,6 +1198,63 @@ namespace _5eCharacterGen
                addEquipment("Arrows x20\n");
                break;
             case "Rogue":
+               health = (uint)(8 + stats.GetConMod());
+               addProficiency("Light armor\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Hand crossbows\n");
+               addProficiency("Longswords\n");
+               addProficiency("Rapiers\n");
+               addProficiency("Shortswords\n");
+               addProficiency("Thieve's tools\n");
+               addProficiency("Dexterity saving throws\n");
+               addProficiency("Intelligence saving throws\n");
+               addProficiency("Choose four from:\n\t\tAcrobatics\n\t\t" +
+                  "Athletics\n\t\tDeception\n\t\tPerformance\n\t\t" +
+                  "Persuasion\n\t\tSleight of Hand\n\t\tStealth\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Rapier\n2. Shortsword\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Rapier\n");
+               }
+               else
+               {
+                  addEquipment("Shortsword\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Shortbow and quiver of 20 arrows\n2. Shortsword\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Shortbow\n");
+                  addEquipment("Quiver\n");
+                  addEquipment("Arrows x20\n");
+               }
+               else
+               {
+                  addEquipment("Shortsword\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Burglar's pack\n2. Dungeoneer's pack\n3. Explorer's pack\n", 1, 3);
+               if(uiInput == 1)
+               {
+                  addEquipment("Burglar's pack\n");
+               }
+               else if (uiInput == 2)
+               {
+                  addEquipment("Dungeoneer's pack\n");
+               }
+               else
+               {
+                  addEquipment("Explorer's pack\n");
+               }
+
+               addEquipment("Leather armor\n");
+               addEquipment("Dagger\n");
+               addEquipment("Dagger\n");
+               addEquipment("Thieves' tools\n");
                break;
             case "Sorcerer":
                break;
