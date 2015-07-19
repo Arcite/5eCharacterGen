@@ -73,7 +73,8 @@ namespace _5eCharacterGen
       {
          Console.Out.WriteLine("\n{0} {1} the {2} {3}", Background, Name, Race, Class);
          stats.Print();
-         Console.Out.WriteLine("\nSpeed: {0}", speed);
+         Console.Out.WriteLine("\nHealth: {0}", health);
+         Console.Out.WriteLine("Speed: {0}", speed);
          Console.Out.WriteLine("\nAbilities:\n{0}", abilities);
          Console.Out.WriteLine("Proficiencies:\n{0}", proficiencies);
          Console.Out.WriteLine("Languages:\n{0}", languages);
@@ -832,8 +833,9 @@ namespace _5eCharacterGen
                addProficiency("Martial weapons\n");
                addProficiency("Strength saving throws\n");
                addProficiency("Constitution saving throws\n");
-               addProficiency("Choose two from Animal Handling, " +
-                  "Athletics, Intimidation, Nature, Perception, and Survival.\n");
+               addProficiency("Choose two from:\n\t\tAnimal Handling\n\t\t" +
+                  "Athletics\n\t\tIntimidation\n\t\tNature\n\t\tPerception" +
+                  "\n\t\tSurvival\n");
                
                uiInput = getValidUINT("\nChoose one of following:\n" +
                   "1. Greataxe\n2. Any martial weapon\n", 1, 2);
@@ -921,8 +923,8 @@ namespace _5eCharacterGen
                addProficiency("Simple weapons\n");
                addProficiency("Wisdom saving throws\n");
                addProficiency("Charisma saving throws\n");
-               addProficiency("Choose two from History, Insight, " +
-                  "Medicine, Persuasion, and Religion.\n");
+               addProficiency("Choose two from:\n\t\tHistory\n\t\tInsight\n\t\t" +
+                  "Medicine\n\t\tPersuasion\n\t\tReligion.\n");
                
                uiInput = getValidUINT("Choose one of the following:\n" +
                   "1. Mace\n2. Warhammer\n", 1, 2);
@@ -980,6 +982,56 @@ namespace _5eCharacterGen
                addEquipment("Holy symbol\n");
                break;
             case "Druid":
+               health = (uint)(8 + stats.GetConMod());
+               addProficiency("Light armor\n");
+               addProficiency("Medium armor\n");
+               addProficiency("Shields\n");
+               addProficiency(
+                  "Note: Druids will not wear armor or use shields made of metal\n");
+
+               addProficiency("Clubs\n");
+               addProficiency("Daggers\n");
+               addProficiency("Darts\n");
+               addProficiency("Javelins\n");
+               addProficiency("Maces\n");
+               addProficiency("Quartersaffs\n");
+               addProficiency("Scimitars\n");
+               addProficiency("Sickles\n");
+               addProficiency("Slings\n");
+               addProficiency("Spears\n");
+               addProficiency("Herbalism kit\n");
+               addProficiency("Intelligence saving throws\n");
+               addProficiency("Wisdom saving throws\n");
+               addProficiency(
+                  "Choose two from:\n\t\tArcana\n\t\tAnimal Handling\n\t\tInsight" +
+                  "\n\t\tMedicine\n\t\t" + 
+                  "Nature\n\t\tPerception\n\t\tReligion\n\t\tSurvival");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Wooden shield\n2. Any simple weapon\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Wooden shield\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Scimitar\n2. Any simple weapon\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Scimitar\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               addEquipment("Leather armor\n");
+               addEquipment("Explorer's pack\n");
+               addEquipment("Druidic focus\n");
                break;
             case "Fighter":
                break;
@@ -1043,14 +1095,19 @@ namespace _5eCharacterGen
             // assign the scores to the stats
             for (uint i = 0; i < 6; i++)
             {
-               for (uint c = 0; c < 4; c++)
+               do
                {
-                  dice[c] = (uint)rand.Next(1, 7);
-               }
 
-               Array.Sort<uint>(dice);
+                  for (uint c = 0; c < 4; c++)
+                  {
+                     dice[c] = (uint)rand.Next(1, 7);
+                  }
 
-               scores[i] = dice[1] + dice[2] + dice[3];
+                  Array.Sort<uint>(dice);
+
+                  scores[i] = dice[1] + dice[2] + dice[3];
+
+               } while (scores[i] < 8);
             }
 
             Array.Sort<uint>(scores);
