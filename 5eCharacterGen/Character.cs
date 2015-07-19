@@ -128,7 +128,7 @@ namespace _5eCharacterGen
                uiInput = getValidUINT(
                   "\nChoose a subrace: \n"   +
                   "1. High Elf\n"            +
-                  "2. Wood Elf"              +
+                  "2. Wood Elf\n"            +
                   "3. Dark Elf (Drow)", 1, 3);
 
                if(uiInput == 1)
@@ -374,7 +374,7 @@ namespace _5eCharacterGen
                stats.addConstitution(2);
                speed = 25;
                addAbility("Darkvision (60 ft)\n");
-               addAbility("Dwarven Resiliencen");
+               addAbility("Dwarven Resiliencen (PH 20)\n");
                addProficiency("Dwarven Combat Training (PH 20)\n");
                addProficiency("Tool Proficiency (PH 20)\n");
                addLanguage("Common\n");
@@ -1097,8 +1097,54 @@ namespace _5eCharacterGen
                }
                break;
             case "Monk":
+               health = (uint)(8 + stats.GetConMod());
+               addProficiency("Simple weapons\n");
+               addProficiency("Shortswords\n");
+               addProficiency(
+                  "Choose one type of artisan's tools or one musical instrument\n");
+               addProficiency("Strength saving throws\n");
+               addProficiency("Dexterity saving throws\n");
+               addProficiency("Choose two from:\n\t\tAcrobatics\n\t\t" +
+                  "Athletics\n\t\tHistory\n\t\tInsight\n\t\tReligion\n\t\tStealth\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1.Shortsword\n2.Any simple weapon\n", 1, 2);
+
+               if(uiInput == 1)
+               {
+                  addEquipment("Shortsword\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Dungeoneer's pack\n2. Explorer's pack\n", 1, 2);
+
+               if(uiInput == 1)
+               {
+                  addEquipment("Dungeoneer's pack\n");
+               }
+               else
+               {
+                  addEquipment("Explorer's pack\n");
+               }
+
+               addEquipment("Darts x10\n");
                break;
             case "Paladin":
+               health = (uint)(10 + stats.GetConMod());
+               addProficiency("All armor\n");
+               addProficiency("Shields\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Martial weapons\n");
+               addProficiency("Wisdom saving throws\n");
+               addProficiency("Charisma saving throws\n");
+               addProficiency("Choose two from:\n\t\tAthletics\n\t\t" +
+                  "Insight\n\t\tIntimidation\n\t\tMedicine\n\t\tPersuasion\n\t\t" +
+                  "Religion\n");
+
                break;
             case "Ranger":
                break;
