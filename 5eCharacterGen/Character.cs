@@ -914,6 +914,70 @@ namespace _5eCharacterGen
                addEquipment("Dagger\n");
                break;
             case "Cleric":
+               health = (uint)(8 + stats.GetConMod());
+               addProficiency("Light armor\n");
+               addProficiency("Medium armor\n");
+               addProficiency("Shields\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Wisdom saving throws\n");
+               addProficiency("Charisma saving throws\n");
+               addProficiency("Choose two from History, Insight, " +
+                  "Medicine, Persuasion, and Religion.\n");
+               
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Mace\n2. Warhammer\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Mace\n");
+               }
+               else
+               {
+                  addEquipment("Warhammer\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n"  +
+                  "1. Scale mail\n"                                     +
+                  "2. Leather armor\n"                                  +
+                  "3. Chain mail (if proficient)\n", 1, 3);
+               if(uiInput == 1)
+               {
+                  addEquipment("Scale mail\n");
+               }
+               else if(uiInput == 2)
+               {
+                  addEquipment("Leather armor\n");
+               }
+               else
+               {
+                  addEquipment("Chain mail\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Light crossbow and 20 bolts\n" +
+                  "2. Any simple weapon\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Light crossbow\n");
+                  addEquipment("Crossbow bolt x20\n");
+               }
+               else
+               {
+                  addEquipment("Any simple weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Priest's pack\n2. Explorer's pack\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Priest's pack\n");
+               }
+               else
+               {
+                  addEquipment("Explorer's pack\n");
+               }
+
+               addEquipment("Shield\n");
+               addEquipment("Holy symbol\n");
                break;
             case "Druid":
                break;
