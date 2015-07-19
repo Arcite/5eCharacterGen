@@ -446,7 +446,7 @@ namespace _5eCharacterGen
                // Dark Elf (Drow)
                stats.addCharisma(1);
                addAbility("Superior Darkvision (120 ft)\n");
-               addAbility("Sunlight Sensitivity (PH 24)n");
+               addAbility("Sunlight Sensitivity (PH 24)\n");
                addAbility("Drow Magic (PH 24)\n");
                addProficiency("Drow Weapon Training (PH 24)\n");
                break;
@@ -1147,6 +1147,55 @@ namespace _5eCharacterGen
 
                break;
             case "Ranger":
+               health = (uint)(10 + stats.GetConMod());
+               addProficiency("Light armor\n");
+               addProficiency("Medium armor\n");
+               addProficiency("Shields\n");
+               addProficiency("Simple weapons\n");
+               addProficiency("Martial weapons\n");
+               addProficiency("Strength saving throws\n");
+               addProficiency("Dexterity saving throws\n");
+               addProficiency("Choose three from:\n\t\tAnimal Handling\n\t\t" +
+                  "Athletics\n\t\tInsight\n\t\tInvestigation\n\t\t" +
+                  "Nature\n\t\tPerception\n\t\tStealth\n\t\tSurvival\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Scale mail\n2. Leather armor\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Scale mail\n");
+               }
+               else
+               {
+                  addEquipment("Leather armor\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Two shortswords\n2. Two simple melee weapons\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Shortsword\n");
+                  addEquipment("Shortsword\n");
+               }
+               else
+               {
+                  addEquipment("Any simple melee weapon\n");
+                  addEquipment("Any simple melee weapon\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Dungeoneer's pack\n2. Explorer's pack\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Dungeoneer's pack\n");
+               }
+               else
+               {
+                  addEquipment("Explorer's pack\n");
+               }
+
+               addEquipment("Longbow\n");
+               addEquipment("Arrows x20\n");
                break;
             case "Rogue":
                break;
