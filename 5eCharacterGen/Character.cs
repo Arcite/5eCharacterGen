@@ -1331,7 +1331,7 @@ namespace _5eCharacterGen
                }
 
                uiInput = getValidUINT("Choose one of the following:\n" +
-                  "1. Scholar's pack\n 2. Dungeoneer's pack\n", 1, 2);
+                  "1. Scholar's pack\n2. Dungeoneer's pack\n", 1, 2);
                if(uiInput == 1)
                {
                   addEquipment("Scholar's pack\n");
@@ -1347,6 +1347,52 @@ namespace _5eCharacterGen
                addEquipment("Dagger\n");
                break;
             case "Wizard":
+               health = (uint)(6 + stats.GetConMod());
+               addProficiency("Daggers\n");
+               addProficiency("Darts\n");
+               addProficiency("Slings\n");
+               addProficiency("Quarterstaffs\n");
+               addProficiency("Light crossbows\n");
+               addProficiency("Intelligence saving throws\n");
+               addProficiency("Wisdom saving throws\n");
+               addProficiency("Choose two from:\n\t\tArcana\n\t\t" +
+                  "History\n\t\tInsight\n\t\tInvestigation\n\t\t" +
+                  "Medicine\n\t\tReligion\n");
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Quarterstaff\n2. Dagger\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Quarterstaff\n");
+               }
+               else
+               {
+                  addEquipment("Dagger\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" + 
+                  "1. Component pouch\n2. Arcane focus\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Component pouch\n");
+               }
+               else
+               {
+                  addEquipment("Arcane focus\n");
+               }
+
+               uiInput = getValidUINT("Choose one of the following:\n" +
+                  "1. Scholar's pack\n2. Explorer's pack\n", 1, 2);
+               if(uiInput == 1)
+               {
+                  addEquipment("Scholar's pack\n");
+               }
+               else
+               {
+                  addEquipment("Explorer's pack\n");
+               }
+
+               addEquipment("Spellbook\n");
                break;
             default:
                break;
