@@ -114,14 +114,19 @@ namespace _5eCharacterGen
                uiInput = getValidUINT(
                   "\nChoose a subrace: \n"   +
                   "1. Hill Dwarf\n"          +
-                  "2. Mountain Dwarf\n", 1, 2);
+                  "2. Mountain Dwarf\n"      +
+                  "3. Duergar\n", 1, 3);
                if(uiInput == 1)
                {
                   this.Race = "Hill Dwarf";
                }
-               else
+               else if(uiInput == 2)
                {
                   this.Race = "Mountain Dwarf";
+               }
+               else
+               {
+                  this.Race = "Duergar";
                }
                break;
             case 3:
@@ -398,6 +403,24 @@ namespace _5eCharacterGen
                // Mountain Dwarf
                stats.addStrength(2);
                addProficiency("Dwarven Armor Training (PH 20)\n");
+               break;
+            case "Duergar":
+               // Dwarf
+               stats.addConstitution(2);
+               speed = 25;
+               addAbility("Dwarven Resiliencen");
+               addProficiency("Dwarven Combat Training (PH 20)\n");
+               addProficiency("Tool Proficiency (PH 20)\n");
+               addLanguage("Common\n");
+               addLanguage("Dwarvish\n");
+
+               // Duergar
+               stats.addStrength(1);
+               addAbility("Darkvision (120 ft)\n");
+               addLanguage("Undercommon\n");
+               addAbility("Duergar Resilience (SCAG 104)\n");
+               addAbility("Duergar Magic (SCAG 104)\n");
+               addAbility("Sunlight Sensitivity\n");
                break;
             case "High Elf":
                // Elf
