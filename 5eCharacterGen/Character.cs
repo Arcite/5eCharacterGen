@@ -13,7 +13,7 @@ namespace _5eCharacterGen
       private string Class;         // the PC's class          (PH Chapter 3)
       private string Background;    // the PC's background     (PH Chapter 4)
       private AbilityScore stats;   // the PC's ability scores (PH Chapter 1)
-      private uint age;             // PC's age
+      //private uint age;             // TODO: PC's age
       private uint speed;           // PC's speed
       private string abilities;     // PC's abilities
       private string proficiencies; // PC's proficiencies
@@ -28,7 +28,7 @@ namespace _5eCharacterGen
          this.Race            = "";
          this.Class           = "";
          this.Background      = "";
-         this.age             = 0;           
+         //TODO: this.age             = 0;           
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
@@ -44,7 +44,7 @@ namespace _5eCharacterGen
          this.Race            = "";
          this.Class           = "";
          this.Background      = "";
-         this.age             = 0;           
+         // TODO: this.age             = 0;           
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
@@ -60,7 +60,7 @@ namespace _5eCharacterGen
          this.Race            = race;
          this.Class           = charClass;
          this.Background      = background;
-         this.age             = 0;
+         // TODO: this.age             = 0;
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
@@ -306,7 +306,9 @@ namespace _5eCharacterGen
             "10. Sage\n"                                    +
             "11. Sailor\n"                                  +
             "12. Soldier\n"                                 +
-            "13. Urchin", 1, 13);
+            "13. Urchin\n"                                  +
+            "14. City Watch\n"                              +
+            "15. Clan Crafter\n", 1, 15);
 
          switch (uiInput)
          {
@@ -348,6 +350,12 @@ namespace _5eCharacterGen
                break;
             case 13:
                this.Background = "Urchin";
+               break;
+            case 14:
+               this.Background = "City Watch";
+               break;
+            case 15:
+               this.Background = "Clan Crafter";
                break;
             default:
                this.Background = "ERROR";
@@ -730,78 +738,122 @@ namespace _5eCharacterGen
                addProficiency("Insight\n");
                addProficiency("Religion\n");
                addLanguage("Two of your choice\n");
+               // TODO: add equipment
                break;
             case "Charlatan":
                addProficiency("Deception\n");
                addProficiency("Sleight of Hand\n");
                addProficiency("Disguise kit\n");
                addProficiency("Forgery kit\n");
+               // TODO: add equipment
                break;
             case "Criminal":
                addProficiency("Deception\n");
                addProficiency("Stealth\n");
                addProficiency("One type of gaming set\n");
                addProficiency("Thieve's tools\n");
+               // TODO: add equipment
                break;
             case "Entertainer":
                addProficiency("Acrobatics\n");
                addProficiency("Performance\n");
                addProficiency("Disguise Kit\n");
                addProficiency("One type of musical instrument\n");
+               // TODO: add equipment
                break;
             case "Folk Hero":
                addProficiency("Animal Handling\n");
                addProficiency("Survival\n");
                addProficiency("One type of artisan's tools\n");
                addProficiency("Vehicles (land)\n");
+               // TODO: add equipment
                break;
             case "Guild Artisan":
                addProficiency("Insight\n");
                addProficiency("Persuasion\n");
                addProficiency("One type of artisan's tools\n");
                addLanguage("One of your choice\n");
+               // TODO: add equipment
                break;
             case "Hermit":
                addProficiency("Medicine\n");
                addProficiency("Religion\n");
                addProficiency("Herbalism kit\n");
                addLanguage("One of your choice\n");
+               // TODO: add equipment
                break;
             case "Noble":
                addProficiency("History\n");
                addProficiency("Persuasion\n");
                addProficiency("One type of gaming set\n");
                addLanguage("One of your choice\n");
+               // TODO: add equipment
                break;
             case "Outlander":
                addProficiency("Athletics\n");
                addProficiency("Survival\n");
                addProficiency("One type of musical instrument\n");
                addLanguage("One of your choice\n");
+               // TODO: add equipment
                break;
             case "Sage":
                addProficiency("Arcana\n");
                addProficiency("History\n");
                addLanguage("Two of your choice\n");
+               // TODO: add equipment
                break;
             case "Sailor":
                addProficiency("Athletics\n");
                addProficiency("Perception\n");
                addProficiency("Navigator's tools\n");
                addProficiency("Vehicles (Water)\n");
+               // TODO: add equipment
                break;
             case "Soldier":
                addProficiency("Athletics\n");
                addProficiency("Intimidation\n");
                addProficiency("One type of gaming set\n");
                addProficiency("Vehicles (land)\n");
+               // TODO: add equipment
                break;
             case "Urchin":
                addProficiency("Sleight of Hande\n");
                addProficiency("Stealth\n");
                addProficiency("Disguise kit\n");
                addProficiency("Thieve's tools\n");
+               // TODO: add equipment
                break;
+            case "City Watch":
+               addProficiency("Athletics\n");
+               addProficiency("Insight\n");
+               addLanguage("Two of your choice\n");
+               addEquipment("Uniform\n");
+               addEquipment("Horn\n");
+               addEquipment("Manacles\n");
+               addEquipment("Pouch containing 10 gp\n");
+               break;
+            case "Clan Crafter":
+               addProficiency("History\n");
+               addProficiency("Insight\n");
+               addProficiency("One type of artisan's tools\n");
+               addLanguage("Dwarvish (or one of your choice if you already speak Dwarvish)\n");
+               addEquipment("Artisan's tools (must be proficient)\n");
+               addEquipment("Maker's mark chisel\n");
+               addEquipment("Traveler's clothes\n");
+               addEquipment("Pouch containing 5 gp\n");
+               addEquipment("Gem worth 10 gp\n");
+               break;
+               // TODO:
+               // Cloistered Scholar
+               // Courtier
+               // Faction Agent
+               // Far Traveler
+               // Inheritor
+               // Knight of the Order
+               // Mercenary Veteran
+               // Urban Bount Hunter
+               // Uthgardt Tribe Member
+               // Waterdhavian Noble
             default:
                break;
          }
