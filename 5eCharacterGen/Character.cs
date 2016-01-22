@@ -177,15 +177,20 @@ namespace _5eCharacterGen
             case 5:
                uiInput = getValidUINT("\nChoose a subrace:\n"  +
                   "1. Forest Gnome\n"                          +
-                  "2. Rock Gnome", 1, 2);
+                  "2. Rock Gnome\n"                            +
+                  "3. Deep Gnome (Svirfneblin)\n", 1, 3);
 
                if (uiInput == 1)
                {
                   this.Race = "Forest Gnome";
                }
-               else
+               else if (uiInput == 2)
                {
                   this.Race = "Rock Gnome";
+               }
+               else
+               {
+                  this.Race = "Deep Gnome";
                }
                break;
             case 6:
@@ -197,7 +202,7 @@ namespace _5eCharacterGen
             case 8:
                uiInput = getValidUINT("\nChoose a subrace:\n"  +
                   "1. Lightfoot Halfling\n"                    +
-                  "2. Stout Halfling", 1, 2);
+                  "2. Stout Halfling\n", 1, 2);
                if (uiInput == 1)
                {
                   this.Race = "Lightfoot Halfling";
@@ -552,6 +557,20 @@ namespace _5eCharacterGen
                stats.addConstitution(1);
                addAbility("Artificer's Lore (PH 37)\n");
                addAbility("Tinker (PH 37)\n");
+               break;
+            case "Deep Gnome":
+               // Gnome
+               stats.addIntelligence(2);
+               speed = 25;
+               addAbility("Gnome Cunning (PH 37)\n");
+               addLanguage("Common\n");
+               addLanguage("Gnomish\n");
+
+               // Svirfneblin
+               stats.addDexterity(1);
+               addAbility("Darkvision (120 ft)\n");
+               addAbility("Stone Camouflage\n");
+               addLanguage("Undercommon\n");
                break;
             case "Half-Elf":
                Boolean fValid = false;
