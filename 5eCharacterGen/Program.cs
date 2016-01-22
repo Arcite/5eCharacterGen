@@ -28,6 +28,9 @@ namespace _5eCharacterGen
          // Get the PC's race
          dood.SetRace();
 
+         // Get the PC's age
+         dood.SetAge();
+
          // Roll some stats
          dood.SetScores();
 

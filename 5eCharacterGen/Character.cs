@@ -13,7 +13,7 @@ namespace _5eCharacterGen
       private string Class;         // the PC's class          (PH Chapter 3)
       private string Background;    // the PC's background     (PH Chapter 4)
       private AbilityScore stats;   // the PC's ability scores (PH Chapter 1)
-      //private uint age;             // TODO: PC's age
+      private uint age;             // PC's age
       private uint speed;           // PC's speed
       private string abilities;     // PC's abilities
       private string proficiencies; // PC's proficiencies
@@ -28,7 +28,7 @@ namespace _5eCharacterGen
          this.Race            = "";
          this.Class           = "";
          this.Background      = "";
-         //TODO: this.age             = 0;           
+         this.age             = 0;           
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
@@ -44,7 +44,7 @@ namespace _5eCharacterGen
          this.Race            = "";
          this.Class           = "";
          this.Background      = "";
-         // TODO: this.age             = 0;           
+         this.age             = 0;           
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
@@ -53,14 +53,14 @@ namespace _5eCharacterGen
          this.health          = 0;
       }
 
-      public Character(string name, string race, string charClass, string background)
+      public Character(string name, string race, string charClass, string background, uint age)
          // Constructor that sets all values
       {
          this.Name            = name;
          this.Race            = race;
          this.Class           = charClass;
          this.Background      = background;
-         // TODO: this.age             = 0;
+         this.age             = age;
          this.speed           = 30;
          this.abilities       = "";
          this.proficiencies   = "";
@@ -85,6 +85,12 @@ namespace _5eCharacterGen
       {
          Console.Write("Enter your character's name: ");
          this.Name =  Console.ReadLine();
+      }
+
+      public void SetAge()
+      {
+         // TODO: put this in SetRace and make the bounds based on the Race
+         this.age = getValidUINT("Enter your character's age: (1-1500 depending on race)", 1, 1500);
       }
 
       public void SetRace()
@@ -1546,7 +1552,7 @@ namespace _5eCharacterGen
 
                   scores[i] = dice[1] + dice[2] + dice[3];
 
-               } while (scores[i] < 8);
+               } while (scores[i] < 6);
             }
 
             Array.Sort<uint>(scores);
