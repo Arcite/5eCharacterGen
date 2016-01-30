@@ -317,7 +317,14 @@ namespace _5eCharacterGen
             "15. Clan Crafter\n"                            +
             "16. Cloistered Scholar\n"                      +
             "17. Courtier\n"                                +
-            "18. Faction Agent\n", 1, 18);
+            "18. Faction Agent\n"                           +
+            "19. Far Traveler\n"                            +
+            "20. Inheritor\n"                               +
+            "21. Knight of the Order\n"                     +
+            "22. Mercenary Veteran\n"                       +
+            "23. Urban Bount Hunter\n"                      +
+            "24. Uthgardt Tribe Member\n"                   +
+            "25. Waterdhavian Noble\n", 1, 25);
 
          switch (uiInput)
          {
@@ -374,6 +381,27 @@ namespace _5eCharacterGen
                break;
             case 18:
                this.Background = "Faction Agent";
+               break;
+            case 19:
+               this.Background = "Far Traveler";
+               break;
+            case 20:
+               this.Background = "Inheritor";
+               break;
+            case 21:
+               this.Background = "Knight of the Order";
+               break;
+            case 22:
+               this.Background = "Mercenary Veteran";
+               break;
+            case 23:
+               this.Background = "Urban Bount Hunter";
+               break;
+            case 24:
+               this.Background = "Uthgardt Tribe Member";
+               break;
+            case 25:
+               this.Background = "Waterdhavian Noble";
                break;
             default:
                this.Background = "ERROR";
@@ -888,14 +916,77 @@ namespace _5eCharacterGen
                addEquipment("Common clothes\n");
                // TODO: 15 gp
                break;
-               // TODO:
-               // Far Traveler
-               // Inheritor
-               // Knight of the Order
-               // Mercenary Veteran
-               // Urban Bount Hunter
-               // Uthgardt Tribe Member
-               // Waterdhavian Noble
+            case "Far Traveler":
+               addProficiency("Insight\n");
+               addProficiency("Perception\n");
+               addProficiency("Any one musical instrument or gaming set of your choice\n");
+               addLanguage("Any one of your choice\n");
+               addEquipment("Traveler's clothes\n");
+               addEquipment("The musical instrument or gaming set of your choice\n");
+               addEquipment("Poorly wrought maps from your homeland\n");
+               addEquipment("Jewelry from your homeland, worth 10 gp\n");
+               // TODO: 5 gp
+               // TODO: WHy areyou Here? Traits, Ideals, Bonds, and Flaws
+               break;
+            case "Inheritor":
+               addProficiency("Survival\n");
+               addProficiency("One from among Arcana, History, and Religion\n");
+               addProficiency("Your choice of a gaming set or musical instrument\n");
+               addLanguage("Any one of your choice\n");
+               addEquipment("Your inheritance (work with your DM)\n");
+               addEquipment("Traveler's clothes\n");
+               addEquipment("Any item with which you are proficient\n");
+               // TODO: 15 gp
+               break;
+            case "Knight of the Order":
+               addProficiency("Persuasion\n");
+               addProficiency("One from among Arcana, History, Nature, and Religion\n");
+               addProficiency("One type of gaming set or musical instrument\n");
+               addLanguage("One of your choice\n");
+               addEquipment("Traveler's clothes\n");
+               addEquipment("Signet\n");
+               addEquipment("Banner of seal representing your place or rank\n");
+               // TODO: 10 gp
+               // TODO: ask for Order?
+               break;
+            case "Mercenary Veteran":
+               addProficiency("Athletics\n");
+               addProficiency("Persuasion\n");
+               addProficiency("One type of gaming set\n");
+               addProficiency("Land Vehicles\n");
+               addEquipment("Uniform of your company (Traveler's clothes)\n");
+               addEquipment("Insignia of your rank\n");
+               // TODO: 10 gp
+               break;
+            case "Urban Bount Hunter":
+               addProficiency("Choose two from among:\n" + 
+                              "\tDeception\n\tInsight\n\tPersuasion\n\tStealth\n");
+               addProficiency("Choose two from among one type of:\n\t" +
+                              "Gaming set\n\tOne musical instrument\n\tThieves' tools\n");
+               addEquipment("Clothes appropriate to your duties\n");
+               // TODO: 20 gp
+               break;
+            case "Uthgardt Tribe Member":
+               addProficiency("Athletics\n");
+               addProficiency("Survival\n");
+               addProficiency("One type of musical instrument or artisan's tools\n");
+               addLanguage("One of your choice\n");
+               addEquipment("Hunting trap\n");
+               addEquipment("Totemic token or set of tattooes marking your loyalty to Uthgar or your tribal totem\n");
+               addEquipment("Traveler's clothes\n");
+               // TODO: 10 gp
+               break;
+            case "Waterdhavian Noble":
+               addProficiency("History\n");
+               addProficiency("Persuasion\n");
+               addProficiency("One type of gaming set or one musical instrument\n");
+               addLanguage("One of your choice\n");
+               addEquipment("Set of fine clothes\n");
+               addEquipment("Signet ring or brooch\n");
+               addEquipment("Scroll of pedigree\n");
+               addEquipment("Skinf of fine zzar or wine\n");
+               // TODO: 20 gp
+               break;
             default:
                break;
          }
