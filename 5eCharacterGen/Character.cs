@@ -314,7 +314,10 @@ namespace _5eCharacterGen
             "12. Soldier\n"                                 +
             "13. Urchin\n"                                  +
             "14. City Watch\n"                              +
-            "15. Clan Crafter\n", 1, 15);
+            "15. Clan Crafter\n"                            +
+            "16. Cloistered Scholar\n"                      +
+            "17. Courtier\n"                                +
+            "18. Faction Agent\n", 1, 18);
 
          switch (uiInput)
          {
@@ -362,6 +365,15 @@ namespace _5eCharacterGen
                break;
             case 15:
                this.Background = "Clan Crafter";
+               break;
+            case 16:
+               this.Background = "Cloistered Scholar";
+               break;
+            case 17:
+               this.Background = "Courtier";
+               break;
+            case 18:
+               this.Background = "Faction Agent";
                break;
             default:
                this.Background = "ERROR";
@@ -849,10 +861,34 @@ namespace _5eCharacterGen
                addEquipment("Pouch containing 5 gp\n");
                addEquipment("Gem worth 10 gp\n");
                break;
+            case "Cloistered Scholar":
+               addProficiency("History\n");
+               addProficiency("Your choice of one from among Arcana, Nature, and Religion\n");
+               addLanguage("Two of your choice\n");
+               addEquipment("Scholar's robes\n");
+               addEquipment("Writing kit:\n\tSmall pouch with a quill\n\tInk\n\t" +
+                              "Folded parchment\n\tSmall penknife");
+               addEquipment("Borrowed book\n");
+               // TODO: 10 gp
+               break;
+            case "Courtier":
+               addProficiency("Insight\n");
+               addProficiency("Persuasion\n");
+               addLanguage("Two of your choice\n");
+               addEquipment("Set of fine clothes\n");
+               // TODO: 5 gp
+               break;
+            case "Faction Agent":
+               addProficiency("Insight\n");
+               addProficiency("One Intelligence, Wisdow, or Charisma skill of your choice, " +
+                              "as appropriate to your faction\n");
+               addLanguage("Two of your choice\n");
+               addEquipment("Badge or emblem of your faction\n");
+               addEquipment("Copy of a seminal faction text (or code book)\n");
+               addEquipment("Common clothes\n");
+               // TODO: 15 gp
+               break;
                // TODO:
-               // Cloistered Scholar
-               // Courtier
-               // Faction Agent
                // Far Traveler
                // Inheritor
                // Knight of the Order
