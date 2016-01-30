@@ -109,7 +109,9 @@ namespace _5eCharacterGen
             "7.  Half-Orc\n"                          +
             "8.  Halfling\n"                          +
             "9.  Human\n"                             +
-            "10. Tiefling", 1, 10);
+            "10. Tiefling\n"                          +
+            "11. Aarakocra\n"                         +
+            "12. Goliath\n", 1, 12);
 
          switch (uiInput)
          {
@@ -223,6 +225,12 @@ namespace _5eCharacterGen
                break;
             case 10:
                this.Race = "Tiefling";
+               break;
+            case 11:
+               this.Race = "Aarakocra";
+               break;
+            case 12:
+               this.Race = "Goliath";
                break;
             default:
                break;
@@ -770,6 +778,27 @@ namespace _5eCharacterGen
                addAbility("Infernal Legacy (PH 43)\n");
                addLanguage("Common\n");
                addLanguage("Infernal\n");
+               break;
+            case "Aarakocra":
+               stats.addDexterity(2);
+               stats.addWisdom(1);
+               speed = 25;
+               addAbility("Flight (50ft)\n");
+               addAbility("Talons: unarmed strikes deal 1d4 slashing\n");
+               addLanguage("Comon\n");
+               addLanguage("Aarakocra\n");
+               addLanguage("Auran\n");
+               break;
+            case "Goliath":
+               stats.addStrength(2);
+               stats.addConstitution(1);
+               speed = 30;
+               addProficiency("Athletics\n");
+               addAbility("Stone's Endurance (EEC 11)\n");
+               addAbility("Powerful Build (EEC 11)\n");
+               addAbility("Mountain Born (EEC 11)\n");
+               addLanguage("Common\n");
+               addLanguage("Giant\n");
                break;
          }
 
